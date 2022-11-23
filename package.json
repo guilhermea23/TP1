@@ -1,0 +1,11 @@
+{
+  "name": "TP1-2022-2",
+  "version": "1.0.0",
+  "main": "README.md",
+  "repository": "https://github.com/guilhermea23/TP1-2022-2.git",
+  "author": "guilhermea23",
+  "license": "MIT",
+  "dependencies": {
+    "gitmoji-cli": "^7.0.2"
+  }
+}
