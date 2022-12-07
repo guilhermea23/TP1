@@ -2,7 +2,7 @@ package TP1.Exercicios.java.Topico5;
 
 import java.util.Scanner;
 
-class Veiculo{
+class Veiculo {
     private String placa;
     private String marca;
     private String modelo;
@@ -49,7 +49,7 @@ class Veiculo{
         this.ano = ano;
     }
 
-    public Veiculo(String placa, String marca, String modelo, String cor, Integer ano){
+    public Veiculo(String placa, String marca, String modelo, String cor, Integer ano) {
         this.setPlaca(placa);
         this.setMarca(marca);
         this.setModelo(modelo);
@@ -57,10 +57,11 @@ class Veiculo{
         this.setAno(ano);
     }
 
-    public Veiculo(){}
+    public Veiculo() {
+    }
 }
 
-class Motorista{
+class Motorista {
     private Integer id;
     private String nome;
     private String telefone;
@@ -98,17 +99,18 @@ class Motorista{
         this.telefone = telefone;
     }
 
-    public Motorista(Integer id, String nome, String telefone, String cnh){
+    public Motorista(Integer id, String nome, String telefone, String cnh) {
         this.setId(id);
         this.setCnh(cnh);
         this.setNome(nome);
         this.setTelefone(telefone);
     }
 
-    public Motorista(){}
+    public Motorista() {
+    }
 }
 
-class Cliente{
+class Cliente {
     private Integer id;
     private String rg;
     private String cpf;
@@ -155,18 +157,19 @@ class Cliente{
         this.telefone = telefone;
     }
 
-    public Cliente(Integer id, String nome, String cpf, String rg,String telefone){
-       this.setId(id);
+    public Cliente(Integer id, String nome, String cpf, String rg, String telefone) {
+        this.setId(id);
         this.setNome(nome);
         this.setCpf(cpf);
         this.setRg(rg);
         this.setTelefone(telefone);
     }
 
-    public Cliente(){}
+    public Cliente() {
+    }
 }
 
-class Chamado{
+class Chamado {
     private Integer id;
     private String data;
     private String tipo;
@@ -285,7 +288,9 @@ class Chamado{
         this.veiculo = veiculo;
     }
 
-    public Chamado(Integer id, String data, String tipo, String origem, String destino, String horarioPartida, String horarioRetorno, Double kmInicialVeiculo, Double kmFinalVeiculo, Double valorTotal, Cliente cliente, Motorista motorista, Veiculo veiculo){
+    public Chamado(Integer id, String data, String tipo, String origem, String destino, String horarioPartida,
+            String horarioRetorno, Double kmInicialVeiculo, Double kmFinalVeiculo, Double valorTotal, Cliente cliente,
+            Motorista motorista, Veiculo veiculo) {
         this.setId(id);
         this.setData(data);
         this.setTipo(tipo);
@@ -302,10 +307,11 @@ class Chamado{
 
     }
 
-    public Chamado(){}
+    public Chamado() {
+    }
 }
 
-public class Locadora{
+public class Locadora {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in, "UTF-8");
         String[] linha1 = (entrada.nextLine()).split(" "); // informações do veículo
@@ -313,7 +319,7 @@ public class Locadora{
         String[] linha3 = (entrada.nextLine()).split(" "); // informações do cliente
         String[] linha4 = (entrada.nextLine()).split(" "); // informações do chamado
         Veiculo veiculo = new Veiculo(linha1[0], linha1[1], linha1[2], linha1[3], Integer.valueOf(linha1[4]));
-        Motorista motorista = new Motorista(Integer.valueOf(linha2[0]),linha2[1],linha2[2], linha2[3]);
+        Motorista motorista = new Motorista(Integer.valueOf(linha2[0]), linha2[1], linha2[2], linha2[3]);
         Cliente cliente = new Cliente(Integer.valueOf(linha3[0]), linha3[1], linha3[2], linha3[3], linha3[4]);
         Chamado chamado = new Chamado(Integer.valueOf(linha4[0]), linha4[1], linha4[2], linha4[3], linha4[4],
                 linha4[5], linha4[6], Double.parseDouble(linha4[7]), Double.parseDouble(linha4[8]),
