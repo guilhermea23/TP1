@@ -155,12 +155,12 @@ class Cliente{
         this.telefone = telefone;
     }
 
-    public Cliente(Integer id, String rg, String cpf, String nome,String telefone){
+    public Cliente(Integer id, String nome, String cpf, String rg,String telefone){
        this.setId(id);
-       this.setRg(rg); 
-       this.setCpf(cpf);
-       this.setNome(nome);
-       this.setTelefone(telefone);
+        this.setNome(nome);
+        this.setCpf(cpf);
+        this.setRg(rg);
+        this.setTelefone(telefone);
     }
 
     public Cliente(){}
@@ -308,26 +308,21 @@ class Chamado{
 public class Locadora{
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in, "UTF-8");
-        String linha1 = entrada.nextLine(); // informações do veículo
-        String linha2 = entrada.nextLine(); // informações do motorista
-        String linha3 = entrada.nextLine(); // informações do cliente
-        String linha4 = entrada.nextLine(); // informações do chamado
-        for (String string : linha1.split(" ")) {
-            System.out.println(string);
-            System.out.println("-");
-        }
-        for (String string : linha2.split(" ")) {
-            System.out.println(string);
-            System.out.println("-");            
-        }
-        for (String string : linha3.split(" ")) {
-            System.out.println(string);
-            System.out.println("-");
-        }
-        for (String string : linha4.split(" ")) {
-            System.out.println(string);
-            System.out.println("-");            
-        }
+        String[] linha1 = (entrada.nextLine()).split(" "); // informações do veículo
+        String[] linha2 = (entrada.nextLine()).split(" "); // informações do motorista
+        String[] linha3 = (entrada.nextLine()).split(" "); // informações do cliente
+        String[] linha4 = (entrada.nextLine()).split(" "); // informações do chamado
+        Veiculo veiculo = new Veiculo(linha1[0], linha1[1], linha1[2], linha1[3], Integer.valueOf(linha1[4]));
+        Motorista motorista = new Motorista(Integer.valueOf(linha2[0]),linha2[1],linha2[2], linha2[3]);
+        Cliente cliente = new Cliente(Integer.valueOf(linha3[0]), linha3[1], linha3[2], linha3[3], linha3[4]);
+        Chamado chamado = new Chamado(Integer.valueOf(linha4[0]), linha4[1], linha4[2], linha4[3], linha4[4],
+                linha4[5], linha4[6], Double.parseDouble(linha4[7]), Double.parseDouble(linha4[8]),
+                Double.parseDouble(linha4[9]), cliente, motorista, veiculo);
+        System.out.println(chamado.getId());
+        System.out.println(chamado.getDestino());
+        System.out.println(chamado.getVeiculo().getPlaca());
+        System.out.println(chamado.getCliente().getRg().toString());
+        System.out.println(chamado.getMotorista().getNome());
         entrada.close();
     }
 }
