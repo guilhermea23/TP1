@@ -12,7 +12,7 @@ node_modules/
 nbproject/
 out/
 *.iml
-_MACOSX/
+__MACOSX/
 # Created by https://www.toptal.com/developers/gitignore/api/yarn,java,c++
 # Edit at https://www.toptal.com/developers/gitignore?templates=yarn,java,c++
 
