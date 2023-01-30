@@ -17,14 +17,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author bodao
  */
-public class Acervo extends javax.swing.JFrame {
+public class telaAcervo extends javax.swing.JFrame {
 
     static ArrayList<Livro> listaLivro;
     
     String botao;
     int indexPesquisa = -1;
     
-    public Acervo() {        
+    public telaAcervo() {        
         
         initComponents();
         
