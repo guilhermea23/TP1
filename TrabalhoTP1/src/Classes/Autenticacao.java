@@ -1,31 +1,57 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Classes;
 
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
 
-/**
- *
- * @author gabri
- */
 public class Autenticacao {
-    
-    private ArrayList<String> Cliente;
 
-    public Autenticacao(ArrayList<String> Cliente) {
-        this.Cliente = Cliente;
-    }
-    
-    public ArrayList<String> getCliente() {
-        return Cliente;
+    private final String username;
+    private final char[] password;
+    private final String filePath = "src\\Arquivos\\users.txt";
+
+    public Autenticacao(String username, char[] password) {
+        this.username = username;
+        this.password = password;
     }
 
-    public void setCliente(ArrayList<String> Cliente) {
-        this.Cliente = Cliente;
+    //Fazer o cadastro do usuario e senha
+    public void authCadastro(String username, char[] password) {
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
+            writer.write(username + ":" + new String(password));
+            writer.newLine();
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Erro ao escrever o arquivo de usuários: " + e.getMessage());
+        }
+
     }
-    
-    
-    
+
+    //Verificar se usuario e senha coincidem
+    public boolean auth() {
+        boolean autenticado = false;
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(":");
+                if (parts[0].equals(username) && Arrays.equals(password, parts[1].toCharArray())) {
+                    autenticado = true;
+                    break;
+                }
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.err.println("Erro ao ler o arquivo de usuários: " + e.getMessage());
+        }
+
+        return autenticado;
+    }
+
 }
