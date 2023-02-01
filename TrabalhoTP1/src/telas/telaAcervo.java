@@ -146,6 +146,7 @@ public class telaAcervo extends javax.swing.JFrame {
             }
         });
 
+
         javax.swing.GroupLayout pnlLivroLayout = new javax.swing.GroupLayout(pnlLivro);
         pnlLivro.setLayout(pnlLivroLayout);
         pnlLivroLayout.setHorizontalGroup(
@@ -219,6 +220,10 @@ public class telaAcervo extends javax.swing.JFrame {
 
         jbPesquisaLivro.setLabel("Pesquisar");
         jbPesquisaLivro.addActionListener(new java.awt.event.ActionListener() {
+
+        btnPesquisarLivro.setText("OK");
+        btnPesquisarLivro.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbPesquisaLivroActionPerformed(evt);
             }
