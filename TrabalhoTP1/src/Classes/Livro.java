@@ -24,7 +24,7 @@ public class Livro {
     private int quantidadePaginas;
     private int edicao;
     private int anoPublicacao;
-    private boolean emprestado;
+    private boolean emprestado = false;
     private final String filePath = "src\\Arquivos\\livrosCadastrados.txt";
     public Livro() {
        

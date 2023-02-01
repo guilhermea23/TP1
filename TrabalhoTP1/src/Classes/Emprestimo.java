@@ -7,6 +7,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import Classes.Acervo;
+import Classes.Artigo;
+import Classes.Filme;
+import Classes.Livro;
+import javax.swing.JOptionPane;
+
+
+
 public class Emprestimo {
 
     private long idEmprestimo;
@@ -51,10 +59,15 @@ public class Emprestimo {
     }
 
     //Livro
+    
+
+    
+    
     public static Livro pegarLivroDoAcervo(String idItem) {
         List<Livro> acervo = carregarAcervoDeLivros();
         for (Livro livro : acervo) {
             if (Long.toString(livro.getIdLivro()).equals(idItem) && !livro.isEmprestado()) {
+                livro.setEmprestado(true);
                 return livro;
             }
         }
@@ -90,7 +103,7 @@ public class Emprestimo {
     public static Artigo pegarArtigoDoAcervo(String idItem) {
         List<Artigo> acervo = carregarAcervoDeArtigos();
         for (Artigo artigo : acervo) {
-            if (Long.toString(artigo.getIdArtigo()).equals(idItem) && !artigo.isEmprestado()) {
+            if (Long.toString(artigo.idArtigo()).equals(idItem) && !artigo.isEmprestado()) {
                 return artigo;
             }
         }
@@ -108,9 +121,10 @@ public class Emprestimo {
                 long id = Long.parseLong(dadosLivro[0]);
                 String titulo = dadosLivro[1];
                 int anoPublicacao = Integer.parseInt(dadosLivro[2]);
-                boolean emprestado = Boolean.parseBoolean(dadosLivro[3]);
+                String autorArtigo = dadosLivro[3];
+                boolean emprestado = Boolean.parseBoolean(dadosLivro[4]);
 
-                Artigo artigo = new Artigo(id, titulo, anoPublicacao, emprestado);
+                Artigo artigo = new Artigo(id, titulo, anoPublicacao, autorArtigo, emprestado);
                 acervo.add(artigo);
             }
         } catch (IOException e) {
