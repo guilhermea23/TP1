@@ -45,7 +45,8 @@ public class telaAcervo extends javax.swing.JFrame {
         pnAcervo = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         txtTituloLivro = new javax.swing.JTextField();
-        btnAdicionarFilme = new javax.swing.JButton();
+        lblAdicionarAutor = new javax.swing.JLabel();
+        btnAdicionarAutor = new javax.swing.JButton();
         lblAdicionarEditora = new javax.swing.JLabel();
         btnAdicionarEditora = new javax.swing.JButton();
         btnPesquisarLivro = new javax.swing.JButton();
@@ -79,10 +80,12 @@ public class telaAcervo extends javax.swing.JFrame {
             }
         });
 
-        btnAdicionarFilme.setText("Adicionar Filme");
-        btnAdicionarFilme.addActionListener(new java.awt.event.ActionListener() {
+        lblAdicionarAutor.setText("Filme:");
+
+        btnAdicionarAutor.setText("Adicionar Filme");
+        btnAdicionarAutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionarFilmeActionPerformed(evt);
+                btnAdicionarAutorActionPerformed(evt);
             }
         });
 
@@ -95,7 +98,7 @@ public class telaAcervo extends javax.swing.JFrame {
             }
         });
 
-        btnPesquisarLivro.setText("ok");
+        btnPesquisarLivro.setText("OK");
         btnPesquisarLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarLivroActionPerformed(evt);
@@ -150,6 +153,7 @@ public class telaAcervo extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(pnAcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAdicionarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAdicionarEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAdicionarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -168,7 +172,7 @@ public class telaAcervo extends javax.swing.JFrame {
                         .addGroup(pnAcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAdicionarAutor1)
                             .addComponent(btnAdicionarEditora)
-                            .addComponent(btnAdicionarFilme))))
+                            .addComponent(btnAdicionarAutor))))
                 .addGap(38, 38, 38))
         );
         pnAcervoLayout.setVerticalGroup(
@@ -187,14 +191,18 @@ public class telaAcervo extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(pnAcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnAcervoLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(cmbLivroAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
+                        .addGroup(pnAcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnAcervoLayout.createSequentialGroup()
+                                .addComponent(lblAdicionarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnAcervoLayout.createSequentialGroup()
+                                .addComponent(cmbLivroAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)))
                         .addGroup(pnAcervoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cmbLivroEditora)
                             .addComponent(lblAdicionarEditora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(pnAcervoLayout.createSequentialGroup()
-                        .addComponent(btnAdicionarFilme)
+                        .addComponent(btnAdicionarAutor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAdicionarEditora)))
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -358,9 +366,13 @@ public class telaAcervo extends javax.swing.JFrame {
      
         }
     }//GEN-LAST:event_btnLivroSalvarActionPerformed
-    //botão adicionar Autor e iniciar cadastro    //botão adicionar editora e iniciar cadastro
+    //botão adicionar Autor e iniciar cadastro
+    private void btnAdicionarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarAutorActionPerformed
+   
+    }//GEN-LAST:event_btnAdicionarAutorActionPerformed
+    //botão adicionar editora e iniciar cadastro
     private void btnAdicionarEditoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarEditoraActionPerformed
-/*ew CadastroEditora().setVisible(true);
+n/*ew CadastroEditora().setVisible(true);
 carregarTabelaEditoras();
 */
     }//GEN-LAST:event_btnAdicionarEditoraActionPerformed
@@ -415,10 +427,6 @@ carregarTabelaEditoras();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAdicionarAutor1ActionPerformed
 
-    private void btnAdicionarFilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarFilmeActionPerformed
-
-    }//GEN-LAST:event_btnAdicionarFilmeActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -454,9 +462,9 @@ carregarTabelaEditoras();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdicionarAutor;
     private javax.swing.JButton btnAdicionarAutor1;
     private javax.swing.JButton btnAdicionarEditora;
-    private javax.swing.JButton btnAdicionarFilme;
     private javax.swing.JButton btnLivroCancelar;
     private javax.swing.JButton btnLivroEditar;
     private javax.swing.JButton btnLivroExcluir;
@@ -469,6 +477,7 @@ carregarTabelaEditoras();
     private javax.swing.JComboBox<String> cmbLivroAutor1;
     private javax.swing.JComboBox<String> cmbLivroEditora;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAdicionarAutor;
     private javax.swing.JLabel lblAdicionarEditora;
     private javax.swing.JLabel lblAdicionarLivro;
     private javax.swing.JLabel lblTitulo;

@@ -9,18 +9,16 @@ package Classes;
  * @author gabri
  */
 public class Filme {
-
+    
     private long idFilme;
     private String titulo, genero;
     private int anoLancamento;
-    private boolean emprestado;
 
-    public Filme(long idFilme, String titulo, String genero, int anoLancamento, boolean emprestado) {
+    public Filme(long idFilme, String titulo, String genero, int anoLancamento) {
         this.idFilme = idFilme;
         this.titulo = titulo;
         this.genero = genero;
         this.anoLancamento = anoLancamento;
-        this.emprestado = emprestado;
     }
 
     public long getIdFilme() {
@@ -53,10 +51,6 @@ public class Filme {
 
     public void setAnoLancamento(int anoLancamento) {
         this.anoLancamento = anoLancamento;
-    }
-
-    public boolean isEmprestado() {
-        return emprestado;
-    }
-
+    }  
+    
 }

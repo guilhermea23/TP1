@@ -9,17 +9,15 @@ package Classes;
  * @author gabri
  */
 public class Artigo {
-
+    
     private long idArtigo;
     private String titulo;
     private int anoPublicacao;
-    private boolean emprestado;
 
-    public Artigo(long idArtigo, String titulo, int anoPublicacao, boolean emprestado) {
+    public Artigo(long idArtigo, String titulo, int anoPublicacao) {
         this.idArtigo = idArtigo;
         this.titulo = titulo;
         this.anoPublicacao = anoPublicacao;
-        this.emprestado = emprestado;
     }
 
     public long getIdArtigo() {
@@ -45,9 +43,11 @@ public class Artigo {
     public void setAnoPublicacao(int anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
     }
-
-    public boolean isEmprestado() {
-        return emprestado;
-    }
-
+    
+    
+    
+    
+    
+    
+    
 }
