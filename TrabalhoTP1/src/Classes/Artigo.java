@@ -21,8 +21,9 @@ public class Artigo {
     private boolean emprestado;
     private final String filePath = "src\\Arquivos\\ArtigosCadastrados.txt";
     
-    public Artigo(){};    
-    public Artigo(long idArtigo,String titulo, int anoPublicacao, String autorArtigo, boolean emprestado) {        
+    public Artigo(){};
+    
+    public Artigo(long idArtigo, String titulo, int anoPublicacao, String autorArtigo, boolean emprestado) {        
         this.idArtigo = idArtigo;
         this.titulo = titulo;
         this.anoPublicacao = anoPublicacao;
@@ -30,7 +31,7 @@ public class Artigo {
         this.emprestado = emprestado;
     }
     
-    public void cadastrarArtigo(long idArtigo,String titulo, int anoPublicacao, String autorArtigo, boolean emprestado) {
+    public void cadastrarArtigo(long idArtigo, String titulo, int anoPublicacao, String autorArtigo, boolean emprestado) {
         this.idArtigo = idArtigo;
         this.titulo = titulo;
         this.anoPublicacao = anoPublicacao;

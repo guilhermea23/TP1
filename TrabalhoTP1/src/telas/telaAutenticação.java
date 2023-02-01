@@ -37,7 +37,7 @@ public class telaAutenticação extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         txtMatricula = new javax.swing.JTextField();
         btnEntrar = new javax.swing.JButton();
-        btnEntrar1 = new javax.swing.JButton();
+        btnCriarConta = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         snhSenha = new javax.swing.JPasswordField();
@@ -94,12 +94,12 @@ public class telaAutenticação extends javax.swing.JFrame {
             }
         });
 
-        btnEntrar1.setText("Criar conta");
-        btnEntrar1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnEntrar1.setRequestFocusEnabled(false);
-        btnEntrar1.addActionListener(new java.awt.event.ActionListener() {
+        btnCriarConta.setText("Criar conta");
+        btnCriarConta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCriarConta.setRequestFocusEnabled(false);
+        btnCriarConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrar1ActionPerformed(evt);
+                btnCriarContaActionPerformed(evt);
             }
         });
 
@@ -107,7 +107,7 @@ public class telaAutenticação extends javax.swing.JFrame {
 
         jLabel6.setText("Matrícula");
 
-        snhSenha.setText("jPasswordField1");
+        snhSenha.setText("Passw");
         snhSenha.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 snhSenhaFocusGained(evt);
@@ -131,7 +131,7 @@ public class telaAutenticação extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnEntrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                        .addComponent(btnEntrar1))
+                        .addComponent(btnCriarConta))
                     .addComponent(jLabel1)
                     .addComponent(jLabel6))
                 .addContainerGap(8, Short.MAX_VALUE))
@@ -149,7 +149,7 @@ public class telaAutenticação extends javax.swing.JFrame {
                 .addComponent(snhSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEntrar1)
+                    .addComponent(btnCriarConta)
                     .addComponent(btnEntrar))
                 .addGap(31, 31, 31))
         );
@@ -361,7 +361,7 @@ public class telaAutenticação extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxMenuItem4ActionPerformed
 
-    private void btnEntrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrar1ActionPerformed
+    private void btnCriarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarContaActionPerformed
         
         String matricula = txtMatricula.getText();
         char[] senha = snhSenha.getPassword();
@@ -382,7 +382,7 @@ public class telaAutenticação extends javax.swing.JFrame {
 
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_btnEntrar1ActionPerformed
+    }//GEN-LAST:event_btnCriarContaActionPerformed
 
     private void txtMatriculaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMatriculaFocusGained
         //txtMatricula.setText("");
@@ -441,8 +441,8 @@ public class telaAutenticação extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LogoAuth;
+    private javax.swing.JButton btnCriarConta;
     private javax.swing.JButton btnEntrar;
-    private javax.swing.JButton btnEntrar1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
