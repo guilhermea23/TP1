@@ -1,34 +1,22 @@
 package Classes;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Date;
 
 public class Funcionario extends Cliente {
-    private Long matricula;
     private String cargo;
-    private String senha;
-
-    public Funcionario(Long matricula, String cargo, String senha, Long id, String nome, int cpf, Date dataNascimento, boolean pendencia) {
-        super(id, nome, cpf, dataNascimento, pendencia);
-        this.matricula = matricula;
-        this.cargo = cargo;
-        this.senha = senha;
-    }
-
-    public Funcionario(Long matricula, String cargo, String senha) {
-        this.matricula = matricula;
-        this.cargo = cargo;
-        this.senha = senha;
-    }
-
+    private final String filePathUser = "src\\Arquivos\\user.txt";
+    private final String filePathClientes = "src\\Arquivos\\Clientes.txt";
+    
     public Funcionario() {
     }
+    
 
-    public Long getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(Long matricula) {
-        this.matricula = matricula;
+    public Funcionario(String cargo, Long matricula, String nome, int cpf, Date dataNascimento, int senha, boolean pendencia) {
+        super(matricula, nome, cpf, dataNascimento, senha, pendencia);
+        this.cargo = cargo;
     }
 
     public String getCargo() {
@@ -39,69 +27,36 @@ public class Funcionario extends Cliente {
         this.cargo = cargo;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public String getNome() {
-        return nome;
-    }
-
-    @Override
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    @Override
-    public int getCpf() {
-        return cpf;
-    }
-
-    @Override
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
-    }
-
-    @Override
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
-
-    @Override
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    @Override
-    public boolean isPendencia() {
-        return pendencia;
-    }
-
-    @Override
-    public void setPendencia(boolean pendencia) {
-        this.pendencia = pendencia;
-    }
-
     @Override
     public String toString() {
-        return "Funcionario:" + 
-                "\nMatricula:" + matricula + 
-                "\nCargo:" + cargo + 
-                "\nSenha:" + senha;
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());
+        sb.append(",");
+        sb.append(",").append(cargo);    
+        
+        return sb.toString();
+    }
+    
+    public void funcionarioCadastro() {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePathClientes, true));
+            writer.write(new String(this.toString()));
+            writer.newLine();
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Erro ao escrever dados do funionario: " + e.getMessage());
+        }
+    }
+
+    public void funcionarioCadastroSenha() {
+        try {
+            String usuario = "Funcionario," + this.matricula + "," + this.senha;
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePathUser, true));
+            writer.write(new String(usuario));
+            writer.newLine();
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Erro ao escrever a senha do professor: " + e.getMessage());
+        }
     }
 }
