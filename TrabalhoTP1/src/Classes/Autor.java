@@ -5,27 +5,39 @@
 package Classes;
 
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
  * @author bodao
  */
 public class Autor {
+    private long idAutor;
     private String nomeAutor;
     private String paisAutor; 
-    //referência a objetos associados a classe
-    private ArrayList<Livro> livrosAutor;
-    
-    public Autor(){
-        this.livrosAutor = new ArrayList();
-    }
-
-    public Autor(String nomeAutor, String paisAutor) {
+    private final String filePath = "src\\Arquivos\\AutoresCadastrados.txt";
+        
+    public Autor(){}
+    public Autor(long idAutor, String nomeAutor, String paisAutor) {
+        this.idAutor = idAutor;
         this.nomeAutor = nomeAutor;
         this.paisAutor = paisAutor;
-        this.livrosAutor = new ArrayList();
     }
 
+    public void cadastrarAutor(long idAutor, String nomeAutor, String paisAutor) {
+        this.idAutor = idAutor;
+        this.nomeAutor = nomeAutor;
+        this.paisAutor = paisAutor;
+    }
+
+    public long getIdAutor() {
+        return idAutor;
+    }
+    
     public String getNomeAutor() {
         return nomeAutor;
     }
@@ -34,9 +46,9 @@ public class Autor {
         return paisAutor;
     }
 
-    public ArrayList<Livro> mostrarLivrosAutor() {
+   /* public ArrayList<Livro> mostrarLivrosAutor() {
         return livrosAutor;
-    }
+    }*/
 
     public void setNomeAutor(String nomeAutor) {
         this.nomeAutor = nomeAutor;
@@ -46,15 +58,39 @@ public class Autor {
         this.paisAutor = paisAutor;
     }
     
-    
-    public void adicionarLivrosAutor(Livro livro){
-        this.livrosAutor.add(livro);
-    }
-
     @Override
     public String toString() {
-        return "Autor{" + "nomeAutor=" + nomeAutor + ", paisAutor=" + paisAutor + ", livrosAutor=" + livrosAutor + '}';
-    }    
+        return nomeAutor + "," + paisAutor;
+    }  
+   
+    public long idAutor(){
+        int id = 1;
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                id++;
+            }
+            reader.close();
+        }catch (IOException e) {
+            System.err.println("Erro ao escrever dados do livro: " + e.getMessage());
+        }
+        
+        return id;        
+    }     
+    
+    //Fazer o cadastro do autor
+    public void autorCadastro() {
 
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
+            writer.write(new String(this.toString()));
+            writer.newLine();
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Erro ao escrever dados do autor: " + e.getMessage());
+        }
+
+    }
     
 }

@@ -128,12 +128,11 @@ public class Autenticação extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(snhSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtMatricula)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(btnEntrar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                            .addComponent(btnEntrar1)))
+                    .addComponent(txtMatricula)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnEntrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addComponent(btnEntrar1))
                     .addComponent(jLabel1)
                     .addComponent(jLabel6))
                 .addContainerGap(8, Short.MAX_VALUE))
@@ -270,6 +269,11 @@ public class Autenticação extends javax.swing.JFrame {
 
         jCheckBoxMenuItem2.setSelected(true);
         jCheckBoxMenuItem2.setText("Cadastrar Acervo");
+        jCheckBoxMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jCheckBoxMenuItem2);
 
         jCheckBoxMenuItem3.setSelected(true);
@@ -382,6 +386,10 @@ public class Autenticação extends javax.swing.JFrame {
     private void snhSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_snhSenhaFocusGained
         snhSenha.setText("");
     }//GEN-LAST:event_snhSenhaFocusGained
+
+    private void jCheckBoxMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

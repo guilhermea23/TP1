@@ -4,7 +4,14 @@
  */
 package Classes;
 
-import java.util.ArrayList;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
 
 /**
  *
@@ -18,8 +25,8 @@ public class Livro {
     private int edicao;
     private int anoPublicacao;
     private boolean emprestado;
-
-    public Livro(boolean emprestado) {
+    private final String filePath = "src\\Arquivos\\livrosCadastrados.txt";
+    public Livro() {
        
     }
     
@@ -32,10 +39,21 @@ public class Livro {
         this.anoPublicacao = anoPublicacao;
         this.emprestado = emprestado;
     }
-
-    public void setIdLivro(long idLivro) {
+    
+    public void cadastrarLivro(long idLivro, String titulo, String genero, int quantidadePaginas, int edicao, int anoPublicacao, boolean emprestado) {
         this.idLivro = idLivro;
+        this.titulo = titulo;
+        this.genero = genero;
+        this.quantidadePaginas = quantidadePaginas;
+        this.edicao = edicao;
+        this.anoPublicacao = anoPublicacao;
+        this.emprestado = emprestado;
     }
+
+    
+   /* public void setIdLivro(long idLivro) {
+        this.idLivro = idLivro;
+    }*/
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
@@ -88,5 +106,40 @@ public class Livro {
     public boolean isEmprestado() {
         return emprestado;
     }
+
+    @Override
+    public String toString() {
+        return titulo + "," + genero + "," + quantidadePaginas + "," + edicao + "," + anoPublicacao + "," + emprestado ;
+    }
+    public long idLivro(){
+        int id = 1;
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                id++;
+            }
+            reader.close();
+        }catch (IOException e) {
+            System.err.println("Erro ao escrever dados do livro: " + e.getMessage());
+        }
+        
+        return id;        
+    }
+    
+    //Fazer o cadastro do LIVRO  throws FileNotFoundException
+    public void livroCadastro() {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
+            writer.write(new String(this.toString()));
+            writer.newLine();
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Erro ao escrever dados do livro: " + e.getMessage());
+        }
+
+    }
+    
+    
     
 }

@@ -4,9 +4,9 @@
  */
 package telas;
 
-import Classes.Livro;
-import Classes.Autor;
-import Classes.Editora;
+
+import Classes.Artigo;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CadastroArtigo extends javax.swing.JFrame {
 
-    static ArrayList<Livro> listaArtigo;
+    
     
     String botao;
     int indexPesquisa = -1;
@@ -29,7 +29,7 @@ public class CadastroArtigo extends javax.swing.JFrame {
         //maximizar a tela
         //this.setExtendedState(MAXIMIZED_BOTH);
         
-        listaArtigo = new ArrayList();
+        
         
         //habilitar e desabilitar botões
                
@@ -50,17 +50,10 @@ public class CadastroArtigo extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         txtTituloArtigo = new javax.swing.JTextField();
         lblDataPublicacao = new javax.swing.JLabel();
-        txtDataPublicacaoArtigo = new javax.swing.JFormattedTextField();
+        txtAnoPublicacaoArtigo = new javax.swing.JFormattedTextField();
         lblNumeroPaginas = new javax.swing.JLabel();
-        btnPesquisarArtigo = new javax.swing.JButton();
-        txtNumeroPaginasArtigo = new javax.swing.JTextField();
-        lblPreco = new javax.swing.JLabel();
-        txtPrecoArtigo = new javax.swing.JTextField();
-        lblGenero = new javax.swing.JLabel();
-        txtGeneroArtigo = new javax.swing.JTextField();
-        lblAdicionarAutor = new javax.swing.JLabel();
-        cmbArtigoAutor = new javax.swing.JComboBox<>();
-        btnAdicionarAutor = new javax.swing.JButton();
+        btnCadastrarArtigo = new javax.swing.JButton();
+        txtAutorArtigo = new javax.swing.JTextField();
         btnSairCadastroArtigo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -92,56 +85,22 @@ public class CadastroArtigo extends javax.swing.JFrame {
             }
         });
 
-        lblDataPublicacao.setText("Data Publicação:");
+        lblDataPublicacao.setText("Ano Publicação:");
 
-        try {
-            txtDataPublicacaoArtigo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        txtAnoPublicacaoArtigo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
-        lblNumeroPaginas.setText("Número de Páginas:");
+        lblNumeroPaginas.setText("Autor:");
 
-        btnPesquisarArtigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/check_circle_FILL0_wght400_GRAD200_opsz24.png"))); // NOI18N
-        btnPesquisarArtigo.setText("Cadastrar");
-        btnPesquisarArtigo.setToolTipText("Confimar pesquisa");
-        btnPesquisarArtigo.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarArtigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/check_circle_FILL0_wght400_GRAD200_opsz24.png"))); // NOI18N
+        btnCadastrarArtigo.setText("Cadastrar");
+        btnCadastrarArtigo.setToolTipText("Confimar pesquisa");
+        btnCadastrarArtigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarArtigoActionPerformed(evt);
+                btnCadastrarArtigoActionPerformed(evt);
             }
         });
 
-        txtNumeroPaginasArtigo.setToolTipText("Digite o número de páginas");
-
-        lblPreco.setText("Preço:");
-
-        txtPrecoArtigo.setToolTipText("Digite o preço");
-
-        lblGenero.setText("Gênero:");
-
-        txtGeneroArtigo.setToolTipText("Digite o gênero do livro");
-
-        lblAdicionarAutor.setText("Autor:");
-
-        cmbArtigoAutor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione Autor" }));
-        cmbArtigoAutor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cmbArtigoAutorMouseClicked(evt);
-            }
-        });
-        cmbArtigoAutor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbArtigoAutorActionPerformed(evt);
-            }
-        });
-
-        btnAdicionarAutor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/add_FILL0_wght400_GRAD200_opsz24.png"))); // NOI18N
-        btnAdicionarAutor.setText("Adicionar Autor");
-        btnAdicionarAutor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdicionarAutorActionPerformed(evt);
-            }
-        });
+        txtAutorArtigo.setToolTipText("Digite o número de páginas");
 
         btnSairCadastroArtigo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/close_FILL0_wght400_GRAD200_opsz24.png"))); // NOI18N
         btnSairCadastroArtigo.setText("Sair");
@@ -159,27 +118,16 @@ public class CadastroArtigo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblDataPublicacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblNumeroPaginas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblPreco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblAdicionarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDataPublicacao, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                            .addComponent(lblNumeroPaginas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtDataPublicacaoArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtGeneroArtigo, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPrecoArtigo, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNumeroPaginasArtigo, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbArtigoAutor, 0, 157, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAdicionarAutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtTituloArtigo)))
-                    .addComponent(btnPesquisarArtigo))
+                            .addComponent(txtAnoPublicacaoArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTituloArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                            .addComponent(txtAutorArtigo)))
+                    .addComponent(btnCadastrarArtigo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(btnSairCadastroArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -194,27 +142,14 @@ public class CadastroArtigo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDataPublicacao)
-                    .addComponent(txtDataPublicacaoArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAnoPublicacaoArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumeroPaginas)
-                    .addComponent(txtNumeroPaginasArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPrecoArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPreco))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGenero)
-                    .addComponent(txtGeneroArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbArtigoAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAdicionarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdicionarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(txtAutorArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(115, 115, 115)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnPesquisarArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(btnCadastrarArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                     .addComponent(btnSairCadastroArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -359,22 +294,20 @@ public class CadastroArtigo extends javax.swing.JFrame {
     private void btnSairCadastroArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairCadastroArtigoActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_btnSairCadastroArtigoActionPerformed
-    //botão de novo cadastro    //botão de cancelar    //botão de salvar    //botão adicionar Autor e iniciar cadastro
-    private void btnAdicionarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarAutorActionPerformed
-        
-    }//GEN-LAST:event_btnAdicionarAutorActionPerformed
-    //botão adicionar editora e iniciar cadastro    //clicando na tabela para editar    //Bortão editar cadastro    //botão de exlcuir cadastro    //botão pesquisar que ativa o botão ok e inicia a pesquisa     //botão ok de pesquisar o Livro
-    private void btnPesquisarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarArtigoActionPerformed
-       
-    }//GEN-LAST:event_btnPesquisarArtigoActionPerformed
 
-    private void cmbArtigoAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbArtigoAutorActionPerformed
-
-    }//GEN-LAST:event_cmbArtigoAutorActionPerformed
-
-    private void cmbArtigoAutorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbArtigoAutorMouseClicked
-
-    }//GEN-LAST:event_cmbArtigoAutorMouseClicked
+   //botão adicionar editora e iniciar cadastro    //clicando na tabela para editar    //Bortão editar cadastro    //botão de exlcuir cadastro    //botão pesquisar que ativa o botão ok e inicia a pesquisa     //botão ok de pesquisar o Livro
+    private void btnCadastrarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarArtigoActionPerformed
+        if(txtTituloArtigo.getText().equals("") || txtAnoPublicacaoArtigo.getText().equals("") || txtAutorArtigo.getText().equals("") ){
+            JOptionPane.showMessageDialog(null, "Por favor preencher todos os campos!", "Mensagem", JOptionPane.PLAIN_MESSAGE);
+        }else{
+            String tituloArtigo = txtTituloArtigo.getText();
+            int anoPublicacaoArtigo = Integer.parseInt(txtAnoPublicacaoArtigo.getText());
+            String autorArtigo = txtAutorArtigo.getText();
+            Artigo artigo = new Artigo();
+            artigo.cadastrarArtigo(artigo.idArtigo(),tituloArtigo,anoPublicacaoArtigo,autorArtigo, false);
+            artigo.artigoCadastro();
+        }
+    }//GEN-LAST:event_btnCadastrarArtigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -396,10 +329,8 @@ public class CadastroArtigo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdicionarAutor;
-    private javax.swing.JButton btnPesquisarArtigo;
+    private javax.swing.JButton btnCadastrarArtigo;
     private javax.swing.JButton btnSairCadastroArtigo;
-    private javax.swing.JComboBox<String> cmbArtigoAutor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -415,17 +346,12 @@ public class CadastroArtigo extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JLabel lblAdicionarAutor;
     private javax.swing.JLabel lblDataPublicacao;
-    private javax.swing.JLabel lblGenero;
     private javax.swing.JLabel lblNumeroPaginas;
-    private javax.swing.JLabel lblPreco;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel pnCadastroLivro;
-    private javax.swing.JFormattedTextField txtDataPublicacaoArtigo;
-    private javax.swing.JTextField txtGeneroArtigo;
-    private javax.swing.JTextField txtNumeroPaginasArtigo;
-    private javax.swing.JTextField txtPrecoArtigo;
+    private javax.swing.JFormattedTextField txtAnoPublicacaoArtigo;
+    private javax.swing.JTextField txtAutorArtigo;
     private javax.swing.JTextField txtTituloArtigo;
     // End of variables declaration//GEN-END:variables
 }

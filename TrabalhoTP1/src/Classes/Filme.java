@@ -4,23 +4,39 @@
  */
 package Classes;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author gabri
  */
 public class Filme {
-    
     private long idFilme;
     private String titulo, genero;
     private int anoLancamento;
-
-    public Filme(long idFilme, String titulo, String genero, int anoLancamento) {
+    private boolean emprestado;
+    private final String filePath = "src\\Arquivos\\FilmesCadastrados.txt";
+    
+    public Filme(){}
+    public Filme(long idFilme, String titulo, String genero, int anoLancamento, boolean emprestado) {
         this.idFilme = idFilme;
         this.titulo = titulo;
         this.genero = genero;
         this.anoLancamento = anoLancamento;
+        this.emprestado = emprestado;
     }
-
+    
+    public void cadastrarFilme(long idFilme, String titulo, String genero, int anoLancamento, boolean emprestado) {
+        this.idFilme = idFilme;
+        this.titulo = titulo;
+        this.genero = genero;
+        this.anoLancamento = anoLancamento;
+        this.emprestado = emprestado;
+    }
+    
     public long getIdFilme() {
         return idFilme;
     }
@@ -51,6 +67,45 @@ public class Filme {
 
     public void setAnoLancamento(int anoLancamento) {
         this.anoLancamento = anoLancamento;
-    }  
+    }
+
+    public boolean isEmprestado() {
+        return emprestado;
+    }
+
+    @Override
+    public String toString() {
+        return titulo + "," + genero + "," + anoLancamento + "," + emprestado ;
+    }
     
+    public long idFilme(){
+        int id = 1;
+        try{
+            BufferedReader reader = new BufferedReader(new java.io.FileReader(filePath));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                id++;
+            }
+            reader.close();
+        }catch (IOException e) {
+            System.err.println("Erro ao escrever dados do livro: " + e.getMessage());
+        }
+        
+        return id;        
+    }
+    
+    //Fazer o cadastro filme
+    public void filmeCadastro() {
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
+            writer.write(new String(this.toString()));
+            writer.newLine();
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Erro ao escrever dados do filme: " + e.getMessage());
+        }
+
+    }
+
 }
