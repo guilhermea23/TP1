@@ -108,6 +108,12 @@ public class telaAcervo extends javax.swing.JFrame {
 
         jLabel3.setText("Gênero:");
 
+        txtCodLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodLivroActionPerformed(evt);
+            }
+        });
+
         txtGeneroLivro.setEditable(false);
 
         jLabel10.setText("Nº. de páginas:");
@@ -145,7 +151,6 @@ public class telaAcervo extends javax.swing.JFrame {
                 jTextField11ActionPerformed(evt);
             }
         });
-
 
         javax.swing.GroupLayout pnlLivroLayout = new javax.swing.GroupLayout(pnlLivro);
         pnlLivro.setLayout(pnlLivroLayout);
@@ -220,10 +225,6 @@ public class telaAcervo extends javax.swing.JFrame {
 
         jbPesquisaLivro.setLabel("Pesquisar");
         jbPesquisaLivro.addActionListener(new java.awt.event.ActionListener() {
-
-        btnPesquisarLivro.setText("OK");
-        btnPesquisarLivro.addActionListener(new java.awt.event.ActionListener() {
-
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbPesquisaLivroActionPerformed(evt);
             }
@@ -626,7 +627,7 @@ public class telaAcervo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlGeral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 138, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         pack();
@@ -731,6 +732,10 @@ public class telaAcervo extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jbPesquisarFilmesActionPerformed
+
+    private void txtCodLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodLivroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodLivroActionPerformed
 
     /**
      * @param args the command line arguments

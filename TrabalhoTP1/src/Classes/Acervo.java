@@ -19,6 +19,8 @@ import Classes.Artigo;
  * @author bodao
  */
 public class Acervo {
+    
+    private final String filePath = "src\\Arquivos\\livrosCadastrados.txt";
 
     public Acervo() {
     }
@@ -26,7 +28,7 @@ public class Acervo {
    
     public Livro buscandoLivro(long idLivro){
         Livro livro = new Livro();
-        try (BufferedReader br = new BufferedReader(new java.io.FileReader("livrosCadastrados.txt"))) {
+        try (BufferedReader br = new BufferedReader(new java.io.FileReader(filePath))) {
             String linha;
             while ((linha = br.readLine()) != null) {
                 String[] dadosLivro = linha.split(",");
@@ -81,7 +83,5 @@ public class Acervo {
         System.out.println("Artigo não cadastrado!");
         return null;
     }
-    
-        
     
 }
