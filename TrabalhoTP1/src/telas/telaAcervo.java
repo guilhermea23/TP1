@@ -98,7 +98,7 @@ public class telaAcervo extends javax.swing.JFrame {
             }
         });
 
-        btnPesquisarLivro.setText("ok");
+        btnPesquisarLivro.setText("OK");
         btnPesquisarLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarLivroActionPerformed(evt);
