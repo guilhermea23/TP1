@@ -19,25 +19,16 @@ public class Autenticacao {
     }
 
     //Fazer o cadastro do usuario e senha
-    public boolean authCadastro(String username, char[] password) {
-        
-        boolean cadastroCriado = false;
+    public void authCadastro(String username, char[] password) {
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
             writer.write(username + ":" + new String(password));
             writer.newLine();
             writer.close();
-            
-            cadastroCriado = true;
-            
-            System.out.println("Usuario cadastrado com sucesso!");
-            
         } catch (IOException e) {
             System.err.println("Erro ao escrever o arquivo de usuários: " + e.getMessage());
         }
-        
-        return cadastroCriado;
 
     }
 

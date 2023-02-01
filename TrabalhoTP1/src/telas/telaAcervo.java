@@ -49,7 +49,7 @@ public class telaAcervo extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         txtTituloLivro = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        txtQtdLivro = new javax.swing.JTextField();
         jbPesquisaLivro = new javax.swing.JButton();
         jbCadastraLivro = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -64,7 +64,7 @@ public class telaAcervo extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         txtTituloArtigo = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        jTextField23 = new javax.swing.JTextField();
+        txtQtdArtigo = new javax.swing.JTextField();
         jbPesquisarArtigo = new javax.swing.JButton();
         jbCadastrarArtigo = new javax.swing.JButton();
         pnlFilme = new javax.swing.JPanel();
@@ -78,7 +78,7 @@ public class telaAcervo extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         txtTituloFilme = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
-        jTextField30 = new javax.swing.JTextField();
+        txtQtdFilme = new javax.swing.JTextField();
         jbPesquisarFilmes = new javax.swing.JButton();
         jbCadastrarFilme = new javax.swing.JButton();
         mnPrincipal = new javax.swing.JMenuBar();
@@ -139,13 +139,12 @@ public class telaAcervo extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel14.setText("Qtd. disponível:");
 
-        jTextField11.setEditable(false);
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        txtQtdLivro.setEditable(false);
+        txtQtdLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
+                txtQtdLivroActionPerformed(evt);
             }
         });
-
 
         javax.swing.GroupLayout pnlLivroLayout = new javax.swing.GroupLayout(pnlLivro);
         pnlLivro.setLayout(pnlLivroLayout);
@@ -181,7 +180,7 @@ public class telaAcervo extends javax.swing.JFrame {
                     .addGroup(pnlLivroLayout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtQtdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         pnlLivroLayout.setVerticalGroup(
@@ -213,17 +212,13 @@ public class telaAcervo extends javax.swing.JFrame {
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQtdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jbPesquisaLivro.setLabel("Pesquisar");
         jbPesquisaLivro.addActionListener(new java.awt.event.ActionListener() {
-
-        btnPesquisarLivro.setText("OK");
-        btnPesquisarLivro.addActionListener(new java.awt.event.ActionListener() {
-
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbPesquisaLivroActionPerformed(evt);
             }
@@ -316,7 +311,7 @@ public class telaAcervo extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel24.setText("Qtd. disponível:");
 
-        jTextField23.setEditable(false);
+        txtQtdArtigo.setEditable(false);
 
         javax.swing.GroupLayout pnlArtigoLayout = new javax.swing.GroupLayout(pnlArtigo);
         pnlArtigo.setLayout(pnlArtigoLayout);
@@ -340,7 +335,7 @@ public class telaAcervo extends javax.swing.JFrame {
                     .addGroup(pnlArtigoLayout.createSequentialGroup()
                         .addComponent(jLabel24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtQtdArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         pnlArtigoLayout.setVerticalGroup(
@@ -360,7 +355,7 @@ public class telaAcervo extends javax.swing.JFrame {
                     .addComponent(jLabel22))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlArtigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQtdArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -430,7 +425,7 @@ public class telaAcervo extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel31.setText("Qtd. disponível:");
 
-        jTextField30.setEditable(false);
+        txtQtdFilme.setEditable(false);
 
         javax.swing.GroupLayout pnlFilme2Layout = new javax.swing.GroupLayout(pnlFilme2);
         pnlFilme2.setLayout(pnlFilme2Layout);
@@ -458,7 +453,7 @@ public class telaAcervo extends javax.swing.JFrame {
                     .addGroup(pnlFilme2Layout.createSequentialGroup()
                         .addComponent(jLabel31)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtQtdFilme, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         pnlFilme2Layout.setVerticalGroup(
@@ -482,7 +477,7 @@ public class telaAcervo extends javax.swing.JFrame {
                     .addComponent(jLabel29))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlFilme2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQtdFilme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -682,6 +677,7 @@ public class telaAcervo extends javax.swing.JFrame {
                 txtQtdPaginasLivro.setText(String.valueOf(livro.getQuantidadePaginas()));
                 txtEdicaoLivro.setText(String.valueOf(livro.getEdicao()));
                 txtAnoLivro.setText(String.valueOf(livro.getAnoPublicacao()));               
+                txtQtdLivro.setText(String.valueOf(acervo.qtdLivro(livro.getTitulo())));
                 
             }
         }
@@ -696,9 +692,9 @@ public class telaAcervo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAnoLivroActionPerformed
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+    private void txtQtdLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtdLivroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_txtQtdLivroActionPerformed
 
     private void jbPesquisarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbPesquisarArtigoActionPerformed
         if(txtCodArtigo.getText().equals("")){
@@ -710,7 +706,7 @@ public class telaAcervo extends javax.swing.JFrame {
                 Artigo artigo = acervo.buscandoArtigo(idArtigo);
                 txtTituloArtigo.setText(artigo.getTitulo());
                 txtAnoArtigo.setText(String.valueOf(artigo.getAnoPublicacao()));
-                               
+                txtQtdArtigo.setText(String.valueOf(acervo.qtdArtigo(artigo.getTitulo())));                               
                 
             }
         }
@@ -727,7 +723,7 @@ public class telaAcervo extends javax.swing.JFrame {
                 txtTituloFilme.setText(filme.getTitulo());
                 txteGeneroFilme.setText(filme.getGenero());
                 txtAnoFilme.setText(String.valueOf(filme.getAnoLancamento()));
-                                
+                txtQtdFilme.setText(String.valueOf(filme.getTitulo()));
             }
         }
     }//GEN-LAST:event_jbPesquisarFilmesActionPerformed
@@ -809,9 +805,6 @@ public class telaAcervo extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField30;
     private javax.swing.JButton jbCadastraLivro;
     private javax.swing.JButton jbCadastrarArtigo;
     private javax.swing.JButton jbCadastrarFilme;
@@ -836,6 +829,9 @@ public class telaAcervo extends javax.swing.JFrame {
     private javax.swing.JTextField txtEdicaoLivro;
     private javax.swing.JTextField txtGeneroLivro;
     private javax.swing.JTextField txtIdFilme;
+    private javax.swing.JTextField txtQtdArtigo;
+    private javax.swing.JTextField txtQtdFilme;
+    private javax.swing.JTextField txtQtdLivro;
     private javax.swing.JTextField txtQtdPaginasLivro;
     private javax.swing.JTextField txtTituloArtigo;
     private javax.swing.JTextField txtTituloFilme;

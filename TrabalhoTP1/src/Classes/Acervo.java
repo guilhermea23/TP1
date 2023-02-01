@@ -43,6 +43,22 @@ public class Acervo {
         return null;
     }
     
+    public int qtdLivro(String tituloLivro){
+         String linha;
+         int qtdLivro = 0;
+         try (BufferedReader br = new BufferedReader(new java.io.FileReader("livrosCadastrados.txt"))) {    
+            while ((linha = br.readLine()) != null) {
+                String[] dadosLivro = linha.split(",");                
+                if(tituloLivro.equals(dadosLivro[1])){                                
+                    qtdLivro++;
+                }                
+            }
+        } catch (IOException e) {
+            System.out.println("Ocorreu um erro ao carregar o acervo de filmes: " + e.getMessage());
+        }
+         return qtdLivro;
+    }
+    
     public Filme buscandoFilme(long idFilme){
         Filme filme = new Filme();
         try (BufferedReader br = new BufferedReader(new java.io.FileReader("FilmesCadastrados.txt"))) {
@@ -60,6 +76,22 @@ public class Acervo {
         }
         System.out.println("Filme não cadastrado!");
         return null;
+    }
+    
+    public int qtdFilme(String tituloFilme){
+         String linha;
+         int qtdFilme = 0;
+         try (BufferedReader br = new BufferedReader(new java.io.FileReader("FilmesCadastrados.txt"))) {    
+            while ((linha = br.readLine()) != null) {
+                String[] dadosFilme = linha.split(",");                
+                if(tituloFilme.equals(dadosFilme[1])){                                
+                    qtdFilme++;
+                }                
+            }
+        } catch (IOException e) {
+            System.out.println("Ocorreu um erro ao carregar o acervo de filmes: " + e.getMessage());
+        }
+         return qtdFilme;
     }
     
     public Artigo buscandoArtigo(long idArtigo){
@@ -82,6 +114,21 @@ public class Acervo {
         return null;
     }
     
+    public int qtdArtigo(String tituloFilme){
+         String linha;
+         int qtdArtigo = 0;
+         try (BufferedReader br = new BufferedReader(new java.io.FileReader("FilmesCadastrados.txt"))) {    
+            while ((linha = br.readLine()) != null) {
+                String[] dadosArtigo = linha.split(",");                
+                if(tituloFilme.equals(dadosArtigo[1])){                                
+                    qtdArtigo++;
+                }                
+            }
+        } catch (IOException e) {
+            System.out.println("Ocorreu um erro ao carregar o acervo de filmes: " + e.getMessage());
+        }
+         return qtdArtigo;
+    }
         
     
 }
