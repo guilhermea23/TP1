@@ -4,26 +4,39 @@
  */
 package Classes;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author gabri
  */
 public class Artigo {
-    
     private long idArtigo;
     private String titulo;
     private int anoPublicacao;
-
-    public Artigo(long idArtigo, String titulo, int anoPublicacao) {
+    private String autorArtigo;
+    private boolean emprestado;
+    private final String filePath = "src\\Arquivos\\ArtigosCadastrados.txt";
+    
+    public Artigo(){};    
+    public Artigo(long idArtigo,String titulo, int anoPublicacao, String autorArtigo, boolean emprestado) {        
         this.idArtigo = idArtigo;
         this.titulo = titulo;
         this.anoPublicacao = anoPublicacao;
+        this.autorArtigo = autorArtigo;
+        this.emprestado = emprestado;
     }
-
-    public long getIdArtigo() {
-        return idArtigo;
+    
+    public void cadastrarArtigo(long idArtigo,String titulo, int anoPublicacao, String autorArtigo, boolean emprestado) {
+        this.idArtigo = idArtigo;
+        this.titulo = titulo;
+        this.anoPublicacao = anoPublicacao;
+        this.autorArtigo = autorArtigo;
+        this.emprestado = emprestado;
     }
-
     public String getTitulo() {
         return titulo;
     }
@@ -32,8 +45,16 @@ public class Artigo {
         return anoPublicacao;
     }
 
-    public void setIdArtigo(long idArtigo) {
-        this.idArtigo = idArtigo;
+    public String getAutorArtigo() {
+        return autorArtigo;
+    }
+
+    public boolean isEmprestado() {
+        return emprestado;
+    }
+
+    public String getFilePath() {
+        return filePath;
     }
 
     public void setTitulo(String titulo) {
@@ -43,11 +64,48 @@ public class Artigo {
     public void setAnoPublicacao(int anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
     }
+
+    public void setAutorArtigo(String autorArtigo) {
+        this.autorArtigo = autorArtigo;
+    }
+
+    public void setEmprestado(boolean emprestado) {
+        this.emprestado = emprestado;
+    }
+
+    @Override
+    public String toString() {
+        return titulo + "," + anoPublicacao + "," + autorArtigo + "," + emprestado;
+    }
+
+   public long idArtigo(){
+        int id = 1;
+        try{
+            BufferedReader reader = new BufferedReader(new java.io.FileReader(filePath));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                id++;
+            }
+            reader.close();
+        }catch (IOException e) {
+            System.err.println("Erro ao escrever dados do artigo: " + e.getMessage());
+        }
+        
+        return id;        
+    }
+
     
-    
-    
-    
-    
-    
-    
+    //Fazer o cadastro do autor
+    public void artigoCadastro() {
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
+            writer.write(new String(this.toString()));
+            writer.newLine();
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Erro ao escrever dados do artigo: " + e.getMessage());
+        }
+
+    }
 }

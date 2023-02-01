@@ -196,6 +196,11 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
         btnTipoAcervo.add(rbLivro);
         rbLivro.setText("Livro");
+        rbLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbLivroActionPerformed(evt);
+            }
+        });
 
         btnTipoAcervo.add(rbArtigo);
         rbArtigo.setText("Artigo");
@@ -455,8 +460,16 @@ public class telaEmprestimo extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel16.setText("Estatísticas do Cliente");
 
+        jTextField13.setEditable(false);
+
+        jTextField14.setEditable(false);
+
+        jTextField15.setEditable(false);
+
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel17.setText("Valor da Multa:");
+
+        jTextField16.setEditable(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -595,7 +608,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(248, 248, 248));
 
         lblBemVindo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblBemVindo.setText("Bem-vindo(a), (nomeFuncionario)!");
+        lblBemVindo.setText("Bem-vindo(a)!");
 
         lblLogomarca.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblLogomarca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -786,6 +799,10 @@ public class telaEmprestimo extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void rbLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLivroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbLivroActionPerformed
 
     /**
      * @param args the command line arguments
