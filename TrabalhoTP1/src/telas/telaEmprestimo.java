@@ -648,11 +648,19 @@ public class telaEmprestimo extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel16.setText("Estatísticas do Cliente");
 
+        jTextField13.setEditable(false);
+
+        jTextField14.setEditable(false);
+
+        jTextField15.setEditable(false);
+
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel17.setText("Valor da Multa:");
 
+
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("Total de empréstimos restantes:");
+
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -801,12 +809,15 @@ public class telaEmprestimo extends javax.swing.JFrame {
         pnlBemVindo.setBackground(new java.awt.Color(248, 248, 248));
 
         lblBemVindo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+
         lblBemVindo.setText("Bem-vindo(a), (nomeFuncionario)!");
         lblBemVindo.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 lblBemVindoPropertyChange(evt);
             }
         });
+
 
         lblLogomarca.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblLogomarca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1002,6 +1013,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rbLivroActionPerformed
 
+
     private void lblBemVindoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_lblBemVindoPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_lblBemVindoPropertyChange
@@ -1009,6 +1021,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
     private void txtGeneroFilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroFilmeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGeneroFilmeActionPerformed
+
 
     /**
      * @param args the command line arguments
