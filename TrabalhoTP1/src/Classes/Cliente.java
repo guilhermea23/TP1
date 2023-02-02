@@ -11,7 +11,9 @@ public class Cliente {
     protected int senha;
     protected boolean pendencia;
     
-    public Cliente(){}
+    public Cliente(){
+    
+    }
 
     public Cliente(Long matricula, String nome, int cpf, Date dataNascimento, int senha, boolean pendencia) {
         this.matricula = matricula;

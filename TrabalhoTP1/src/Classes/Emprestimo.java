@@ -6,26 +6,38 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import Classes.Acervo;
 import Classes.Artigo;
 import Classes.Filme;
 import Classes.Livro;
+import Classes.Cliente;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
+
 
 
 
 public class Emprestimo {
 
-    private long idEmprestimo;
+    private long idEmprestimo = 1;
     private Date dataRetirada;
     private boolean atraso = false;
-    private Cliente cliente;
+    private long cliente;
     private Date dataDevolucao;
+    private final String filePath = "src\\Arquivos\\Emprestimos.txt";
+    private final String filePath2 = "src\\Arquivos\\Clientes.txt";
+    
+    private ArrayList<Emprestimo> emprestimos = new ArrayList<>();
 
-    public Emprestimo(long id, Cliente cliente) {
+    public Emprestimo() {
+        
+    }
+    
+    public Emprestimo(long id, long matricula) {
         this.idEmprestimo = id;
-        this.cliente = cliente;
+        this.cliente = matricula;
         this.dataRetirada = new Date();
         this.dataDevolucao = new Date(System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000); // 7 dias a partir da data de empréstimo
     }
@@ -58,17 +70,56 @@ public class Emprestimo {
         this.atraso = atraso;
     }
 
-    //Livro
-    
+        Acervo acervo = new Acervo();
 
+        
+        
+    public String lerCliente(long mat) {
+        
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath2));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(":");
+                if (parts[0].equals(mat)) {
+                    return parts[0];
+                }
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.err.println("Erro ao ler o arquivo de usuários: " + e.getMessage());
+        }
+        return null;
+    }    
+
+    public void salvarEmprestimo(long codigoLivro, long idCliente) {
+        
+        Livro idLivro = new Livro();
+        
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
+            
+            //Cliente clientes = new Cliente();
+            Livro livro = new Livro();
+            long matricula = idCliente;
+            
+            livro.setEmprestado(true);
+            
+            writer.write(getIdEmprestimo() + "," + matricula + "," + livro.getIdLivro());
+            writer.newLine();
+            writer.close();
+            idEmprestimo++;
+        } catch (IOException e) {
+            System.err.println("Erro ao escrever o arquivo de emprestimos: " + e.getMessage());
+        }
+    }
     
-    
-    public static Livro pegarLivroDoAcervo(String idItem) {
+    public Livro pegarLivroDoAcervo(String idItem) {
         List<Livro> acervo = carregarAcervoDeLivros();
         for (Livro livro : acervo) {
-            if (Long.toString(livro.getIdLivro()).equals(idItem) && !livro.isEmprestado()) {
-                livro.setEmprestado(true);
-                return livro;
+            if (Long.toString(livro.getIdLivro()).equals(idItem) && !livro.isEmprestado()) { {
+                    return livro;
+                }
             }
         }
         return null;
