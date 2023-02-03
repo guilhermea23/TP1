@@ -4,6 +4,9 @@
 
 - Discente: **[GUILHERME ARAÚJO DE OLIVEIRA](http://lattes.cnpq.br/5837810251229737)**
 
+
+## Exercícios feitos por @guilhermea23
+## Trabalho e documentação feitos por @guilhermea23, @mrkeepout, @PauloBodao80
 ## Descrição
 
 - Disciplina focada em apresentar os conceitos de **POO** **_(Programação Orientada a Objetos)_**.
