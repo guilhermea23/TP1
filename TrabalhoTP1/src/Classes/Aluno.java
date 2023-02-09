@@ -5,19 +5,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Date;
 
-public class Aluno extends Cliente{
-    private String curso;
-    
-    private final String filePathUser = "src\\Arquivos\\user.txt";
-   private final String filePathClientes = "src\\Arquivos\\Clientes.txt";
-    
-    public Aluno(){}
-   
+public class Aluno extends Cliente {
 
-    public Aluno(String curso, Long matricula, String nome, int cpf, Date dataNascimento, int senha, boolean pendencia) {
-        super(matricula, nome, cpf, dataNascimento, senha, pendencia);
-        this.curso = curso;
+    private String curso;
+    private int qtdItens;
+
+    private final String filePathUser = "src\\Arquivos\\user.txt";
+    private final String filePathClientes = "src\\Arquivos\\Clientes.txt";
+
+    public Aluno() {
     }
+
+    public Aluno(long matricula, String nome, long cpf, Date dataNascimento, int senha, boolean pendencia, String tipoCliente, String curso) {
+        super(matricula, nome, cpf, dataNascimento, senha, pendencia, tipoCliente);
+        this.curso = curso;
+        this.qtdItens = 0;
+    }  
 
     public String getCurso() {
         return curso;
@@ -27,16 +30,24 @@ public class Aluno extends Cliente{
         this.curso = curso;
     }
 
+    public int getQtdItens() {
+        return qtdItens;
+    }
+
+    public void setQtdItens(int qtdItens) {
+        this.qtdItens = qtdItens;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
         sb.append(",");
         sb.append(",").append(curso);
-        
+
         return sb.toString();
     }
-    
+
     public void alunoCadastro() {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePathClientes, true));
@@ -47,7 +58,7 @@ public class Aluno extends Cliente{
             System.err.println("Erro ao escrever dados do aluno: " + e.getMessage());
         }
     }
-    
+
     public void alunoCadastroSenha() {
         try {
             String usuario = "Professor," + this.matricula + "," + this.senha;
@@ -59,5 +70,5 @@ public class Aluno extends Cliente{
             System.err.println("Erro ao escrever a senha do aluno: " + e.getMessage());
         }
     }
-    
+
 }

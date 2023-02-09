@@ -5,10 +5,8 @@
 package telas;
 
 import Classes.Autenticacao;
-import Classes.Acervo;
-import Classes.Emprestimo;
 import java.util.Scanner;
-import telas.telaEmprestimo;
+
 
 /**
  *
@@ -326,6 +324,7 @@ public class telaAutenticação extends javax.swing.JFrame {
 
     private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
         // TODO add your handling code here:
+        new CadastroCliente().setVisible(true);
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
@@ -366,7 +365,7 @@ public class telaAutenticação extends javax.swing.JFrame {
         String matricula = txtMatricula.getText();
         char[] senha = snhSenha.getPassword();
 
-        if (matricula != null) {
+        /*if (matricula != null) {
             
             Autenticacao authen = new Autenticacao(matricula, senha);
             
@@ -378,6 +377,7 @@ public class telaAutenticação extends javax.swing.JFrame {
         } else {
             System.out.println("Erro, dados nao inseridos");
         }
+        */
 
 
 

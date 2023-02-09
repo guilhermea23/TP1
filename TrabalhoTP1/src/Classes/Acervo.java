@@ -6,18 +6,7 @@ package Classes;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import Classes.Livro;
-import Classes.Filme;
-import Classes.Artigo;
 
-
-
-/**
- *
- * @author bodao
- */
 public class Acervo {
     
     private final String filePath = "src\\Arquivos\\livrosCadastrados.txt";
@@ -25,7 +14,6 @@ public class Acervo {
     public Acervo() {
     }
     
-   
     public Livro buscandoLivro(long idLivro){
         Livro livro = new Livro();
         try (BufferedReader br = new BufferedReader(new java.io.FileReader(filePath))) {
@@ -35,6 +23,7 @@ public class Acervo {
                 long id = Long.parseLong(dadosLivro[0]);
                 if(id == idLivro){                    
                     livro.cadastrarLivro(id,dadosLivro[1],dadosLivro[2],Integer.parseInt(dadosLivro[3]),Integer.parseInt(dadosLivro[4]),Integer.parseInt(dadosLivro[5]),Boolean.parseBoolean(dadosLivro[6]));
+                    System.out.println("Livro encontrado!");
                     return livro;
                 }                
             }
@@ -48,13 +37,14 @@ public class Acervo {
     public int qtdLivro(String tituloLivro){
          String linha;
          int qtdLivro = 0;
-         try (BufferedReader br = new BufferedReader(new java.io.FileReader("livrosCadastrados.txt"))) {    
+         try (BufferedReader br = new BufferedReader(new java.io.FileReader(filePath))) {    
             while ((linha = br.readLine()) != null) {
                 String[] dadosLivro = linha.split(",");                
-                if(tituloLivro.equals(dadosLivro[1])){                                
+                if(tituloLivro.equals(dadosLivro[1])){                              
                     qtdLivro++;
                 }                
             }
+            return qtdLivro;
         } catch (IOException e) {
             System.out.println("Ocorreu um erro ao carregar o acervo de filmes: " + e.getMessage());
         }
@@ -69,7 +59,7 @@ public class Acervo {
                 String[] dadosFilme = linha.split(",");
                 long id = Long.parseLong(dadosFilme[0]);
                 if(id == idFilme){                                
-                    filme.cadastrarFilme(idFilme, dadosFilme[1], dadosFilme[2], Integer.parseInt(dadosFilme[3]), Boolean.parseBoolean(dadosFilme[4]));
+                    filme.cadastrarFilme(id, dadosFilme[1], dadosFilme[2], Integer.parseInt(dadosFilme[3]), Boolean.parseBoolean(dadosFilme[4]));
                     return filme;
                 }                
             }
@@ -90,6 +80,7 @@ public class Acervo {
                     qtdFilme++;
                 }                
             }
+            return qtdFilme;
         } catch (IOException e) {
             System.out.println("Ocorreu um erro ao carregar o acervo de filmes: " + e.getMessage());
         }
@@ -116,22 +107,21 @@ public class Acervo {
         return null;
     }
     
-
-    public int qtdArtigo(String tituloFilme){
+    public int qtdArtigo(String tituloArtigo){
          String linha;
          int qtdArtigo = 0;
          try (BufferedReader br = new BufferedReader(new java.io.FileReader("FilmesCadastrados.txt"))) {    
             while ((linha = br.readLine()) != null) {
                 String[] dadosArtigo = linha.split(",");                
-                if(tituloFilme.equals(dadosArtigo[1])){                                
+                if(tituloArtigo.equals(dadosArtigo[1])){                                
                     qtdArtigo++;
                 }                
             }
+            return qtdArtigo;
         } catch (IOException e) {
             System.out.println("Ocorreu um erro ao carregar o acervo de filmes: " + e.getMessage());
         }
          return qtdArtigo;
     }
         
-    
 }

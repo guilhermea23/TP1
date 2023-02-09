@@ -19,7 +19,7 @@ public class Autenticacao {
     }
 
     //Fazer o cadastro do usuario e senha
-    public void authCadastro(String username, char[] password) {
+   /* public boolean authCadastro(String username, char[] password) {
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
@@ -30,7 +30,7 @@ public class Autenticacao {
             System.err.println("Erro ao escrever o arquivo de usuários: " + e.getMessage());
         }
 
-    }
+    }*/
 
     //Verificar se usuario e senha coincidem
     public boolean auth() {

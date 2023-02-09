@@ -5,14 +5,8 @@
 package telas;
 
 import Classes.Livro;
-import Classes.Autor;
-import Classes.Editora;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -416,7 +410,7 @@ public class CadastroLivro extends javax.swing.JFrame {
             int edicaoLivro = Integer.parseInt(txtEdicaoLivro.getText());
             String generoLivro = txtGeneroLivro.getText();           
             Livro livro = new Livro();
-            livro.cadastrarLivro(livro.getIdLivro(),tituloLivro,generoLivro,qtdPagina,edicaoLivro, anoPublicacaoLivro, false);
+            livro.cadastrarLivro(livro.getId(),tituloLivro,generoLivro,qtdPagina,edicaoLivro, anoPublicacaoLivro, false);
             livro.livroCadastro();
             }
     }//GEN-LAST:event_btnCadastrarLivroActionPerformed

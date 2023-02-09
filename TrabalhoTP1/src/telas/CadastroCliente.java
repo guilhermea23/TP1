@@ -29,7 +29,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         txtCargoFuncionario.setEnabled(false);
         txtSenhaFuncionario.setEnabled(false);        
         txtCursoAluno.setEnabled(false);
-        txSenhaAluno.setEnabled(false);        
+        txtSenhaAluno.setEnabled(false);        
         txtFormacaoProfessor.setEnabled(false);
         txtSenhaProfessor.setEnabled(false);
     }
@@ -61,7 +61,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtCursoAluno = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txSenhaAluno = new javax.swing.JTextField();
+        txtSenhaAluno = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         pnlPesquisaCliente1 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -226,7 +226,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         pnlPesquisaCliente.setBackground(new java.awt.Color(248, 248, 248));
 
-        jLabel6.setText("C:urso");
+        jLabel6.setText("Curso");
 
         txtCursoAluno.setEditable(false);
         txtCursoAluno.addActionListener(new java.awt.event.ActionListener() {
@@ -237,10 +237,10 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         jLabel7.setText("Senha:");
 
-        txSenhaAluno.setEditable(false);
-        txSenhaAluno.addActionListener(new java.awt.event.ActionListener() {
+        txtSenhaAluno.setEditable(false);
+        txtSenhaAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txSenhaAlunoActionPerformed(evt);
+                txtSenhaAlunoActionPerformed(evt);
             }
         });
 
@@ -258,7 +258,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                     .addGroup(pnlPesquisaClienteLayout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txSenhaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtSenhaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         pnlPesquisaClienteLayout.setVerticalGroup(
@@ -270,7 +270,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlPesquisaClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(txSenhaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSenhaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 18, Short.MAX_VALUE))
         );
 
@@ -560,9 +560,9 @@ public class CadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCursoAlunoActionPerformed
 
-    private void txSenhaAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txSenhaAlunoActionPerformed
+    private void txtSenhaAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaAlunoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txSenhaAlunoActionPerformed
+    }//GEN-LAST:event_txtSenhaAlunoActionPerformed
 
     private void rbProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbProfessorActionPerformed
         //habilitando campos de txt
@@ -570,7 +570,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         txtSenhaProfessor.setEnabled(true);
         
         txtCursoAluno.setEnabled(false);
-        txSenhaAluno.setEnabled(false);
+        txtSenhaAluno.setEnabled(false);
         txtCargoFuncionario.setEnabled(false);
         txtSenhaFuncionario.setEnabled(false);
     }//GEN-LAST:event_rbProfessorActionPerformed
@@ -581,7 +581,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         txtSenhaFuncionario.setEnabled(true);
         
         txtCursoAluno.setEnabled(false);
-        txSenhaAluno.setEnabled(false);        
+        txtSenhaAluno.setEnabled(false);        
         txtFormacaoProfessor.setEnabled(false);
         txtSenhaProfessor.setEnabled(false);
         
@@ -606,7 +606,7 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void rbAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAlunoActionPerformed
         //habilitando campos de txt
         txtCursoAluno.setEnabled(true);
-        txSenhaAluno.setEnabled(true);
+        txtSenhaAluno.setEnabled(true);
         
         txtFormacaoProfessor.setEnabled(false);
         txtSenhaProfessor.setEnabled(false);
@@ -633,20 +633,21 @@ public class CadastroCliente extends javax.swing.JFrame {
                         Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     String formacao = txtFormacaoProfessor.getText();
-                    int senha = Integer.parseInt(txSenhaAluno.getText());
+                    int senha = Integer.parseInt(txtSenhaAluno.getText());
                     //Professor(Long matricula, String nome, int cpf, Date dataNascimento, int senha, boolean pendencia, String vinculacao, String formacao)
                     Professor professor = new Professor(matricula, nome, cpf, dataNascimento, senha, false, formacao);
                     professor.professorCadastro();
                     professor.professorCadastroSenha();
                 }
             }
+            //ALUNO FUNCIONANDO, PRECISA REPLICAR
             if(rbAluno.getHideActionText()){
-                if(txtMatricula.equals("") || txtNome.equals("") || txtCPF.equals("") || txtDataNascimento.equals("") || txtCursoAluno.equals("") || txSenhaAluno.equals("")){
+                if(txtMatricula.equals("") || txtNome.equals("") || txtCPF.equals("") || txtDataNascimento.equals("") || txtCursoAluno.equals("") || txtSenhaAluno.equals("")){
                     JOptionPane.showMessageDialog(null, "Por favor preencher todos os campos! ", "Mensagem", JOptionPane.PLAIN_MESSAGE);
                 }else{
                     long matricula = Long.parseLong(txtMatricula.getText());
                     String nome = txtNome.getText();
-                    int cpf = Integer.parseInt(txtCPF.getText());
+                    long cpf = Integer.parseInt(txtCPF.getText());
                     DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
                     Date dataNascimento = null;
                     try {
@@ -655,9 +656,9 @@ public class CadastroCliente extends javax.swing.JFrame {
                         Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     String curso = txtCursoAluno.getText();
-                    int senha = Integer.parseInt(txSenhaAluno.getText()); 
+                    int senha = Integer.parseInt(txtSenhaAluno.getText()); 
                     //Aluno(String curso, Long matricula, String nome, int cpf, Date dataNascimento, int senha, boolean pendencia)
-                    Aluno aluno = new Aluno(curso, matricula, nome, cpf, dataNascimento, senha, false);
+                    Aluno aluno = new Aluno(matricula, nome, cpf, dataNascimento, senha, false, "aluno", curso);
                     aluno.alunoCadastro();
                     aluno.alunoCadastroSenha();
                 }                
@@ -677,7 +678,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                         Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     String cargo = txtCargoFuncionario.getText();
-                    int senha = Integer.parseInt(txSenhaAluno.getText());   
+                    int senha = Integer.parseInt(txtSenhaAluno.getText());   
                     //Funcionario(String cargo, Long matricula, String nome, int cpf, Date dataNascimento, int senha, boolean pendencia)
                     Funcionario funcionario = new Funcionario(cargo, matricula, nome, cpf, dataNascimento, senha, false);
                     funcionario.funcionarioCadastro();
@@ -757,7 +758,6 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbAluno;
     private javax.swing.JRadioButton rbFuncionario;
     private javax.swing.JRadioButton rbProfessor;
-    private javax.swing.JTextField txSenhaAluno;
     private javax.swing.JTextField txtCPF;
     private javax.swing.JTextField txtCargoFuncionario;
     private javax.swing.JTextField txtCursoAluno;
@@ -765,6 +765,7 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JTextField txtFormacaoProfessor;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtSenhaAluno;
     private javax.swing.JTextField txtSenhaFuncionario;
     private javax.swing.JTextField txtSenhaProfessor;
     // End of variables declaration//GEN-END:variables
