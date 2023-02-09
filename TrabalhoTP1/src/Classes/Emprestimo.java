@@ -91,8 +91,6 @@ public final class Emprestimo {
 
         cliente = cliente.buscandoCliente(this.matricula);
         
-
-        //long matriculaCliente = idCliente;
         if ("livro".equals(this.getTipoItem())) {
 
             Livro item = acervo.buscandoLivro(codigoItem);
