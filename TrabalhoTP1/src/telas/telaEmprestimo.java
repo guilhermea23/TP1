@@ -27,6 +27,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
     public telaEmprestimo() {
         initComponents();
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -35,6 +36,11 @@ public class telaEmprestimo extends javax.swing.JFrame {
         btnTipoAcervo = new javax.swing.ButtonGroup();
         pnlGeral = new javax.swing.JPanel();
         pnlEmprestimo = new javax.swing.JPanel();
+        rbLivro = new javax.swing.JRadioButton();
+        rbArtigo = new javax.swing.JRadioButton();
+        rbFilme = new javax.swing.JRadioButton();
+        lblTipo = new javax.swing.JLabel();
+        pnlBack = new javax.swing.JPanel();
         pnlLivro = new javax.swing.JPanel();
         lblCodigoLivro = new javax.swing.JLabel();
         txtCodigoLivro = new javax.swing.JTextField();
@@ -51,7 +57,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
         lblQtdLivro = new javax.swing.JLabel();
         txtQtdLivro = new javax.swing.JTextField();
         btnPesquisarLivro = new javax.swing.JButton();
-        btnLimpar = new javax.swing.JButton();
+        btnLimparLivro = new javax.swing.JButton();
         pnlArtigo = new javax.swing.JPanel();
         lblCodigoArtigo = new javax.swing.JLabel();
         txtCodigoArtigo = new javax.swing.JTextField();
@@ -61,6 +67,8 @@ public class telaEmprestimo extends javax.swing.JFrame {
         txtAnoArtigo = new javax.swing.JTextField();
         lblQtdArtigo = new javax.swing.JLabel();
         txtQtdArtigo = new javax.swing.JTextField();
+        btnPesquisarArtigo = new javax.swing.JButton();
+        btnLimparArtigo = new javax.swing.JButton();
         pnlFilme = new javax.swing.JPanel();
         lblCodigoFilme = new javax.swing.JLabel();
         txtCodigoFilme = new javax.swing.JTextField();
@@ -72,15 +80,9 @@ public class telaEmprestimo extends javax.swing.JFrame {
         txtAnoFilme = new javax.swing.JTextField();
         lblQtdFilme = new javax.swing.JLabel();
         txtQtdFilme = new javax.swing.JTextField();
-        rbLivro = new javax.swing.JRadioButton();
-        rbArtigo = new javax.swing.JRadioButton();
-        rbFilme = new javax.swing.JRadioButton();
-        lblTipo = new javax.swing.JLabel();
+        btnPesquisarFilme = new javax.swing.JButton();
+        btnLimparFilme = new javax.swing.JButton();
         pnlCliente = new javax.swing.JPanel();
-        pnlHistoricoCliente = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -111,6 +113,10 @@ public class telaEmprestimo extends javax.swing.JFrame {
         txtNomeCliente = new javax.swing.JTextField();
         txtPendencia = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
+        pnlHistoricoCliente = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
         mnPrincipal = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -129,6 +135,39 @@ public class telaEmprestimo extends javax.swing.JFrame {
         pnlEmprestimo.setBackground(new java.awt.Color(249, 249, 249));
         pnlEmprestimo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Empréstimo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
         pnlEmprestimo.setToolTipText("");
+
+        rbLivro.setBackground(new java.awt.Color(248, 248, 248));
+        btnTipoAcervo.add(rbLivro);
+        rbLivro.setSelected(true);
+        rbLivro.setText("Livro");
+        rbLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbLivroActionPerformed(evt);
+            }
+        });
+
+        rbArtigo.setBackground(new java.awt.Color(248, 248, 248));
+        btnTipoAcervo.add(rbArtigo);
+        rbArtigo.setText("Artigo");
+        rbArtigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbArtigoActionPerformed(evt);
+            }
+        });
+
+        rbFilme.setBackground(new java.awt.Color(248, 248, 248));
+        btnTipoAcervo.add(rbFilme);
+        rbFilme.setText("Filme");
+        rbFilme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbFilmeActionPerformed(evt);
+            }
+        });
+
+        lblTipo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTipo.setText("Selecione o tipo do empréstimo/devolução:");
+
+        pnlBack.setLayout(new java.awt.CardLayout());
 
         pnlLivro.setBackground(new java.awt.Color(248, 248, 248));
         pnlLivro.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Livro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 2, 12))); // NOI18N
@@ -189,10 +228,10 @@ public class telaEmprestimo extends javax.swing.JFrame {
             }
         });
 
-        btnLimpar.setText("Limpar");
-        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+        btnLimparLivro.setText("Limpar");
+        btnLimparLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimparActionPerformed(evt);
+                btnLimparLivroActionPerformed(evt);
             }
         });
 
@@ -234,7 +273,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
                     .addGroup(pnlLivroLayout.createSequentialGroup()
                         .addComponent(btnPesquisarLivro)
                         .addGap(18, 18, 18)
-                        .addComponent(btnLimpar)
+                        .addComponent(btnLimparLivro)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -272,9 +311,11 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pnlLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPesquisarLivro)
-                    .addComponent(btnLimpar))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addComponent(btnLimparLivro))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
+
+        pnlBack.add(pnlLivro, "card2");
 
         pnlArtigo.setBackground(new java.awt.Color(248, 248, 248));
         pnlArtigo.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Artigo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 2, 12)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 2, 12))); // NOI18N
@@ -294,6 +335,20 @@ public class telaEmprestimo extends javax.swing.JFrame {
         lblQtdArtigo.setText("Qtd. disponível:");
 
         txtQtdArtigo.setEditable(false);
+
+        btnPesquisarArtigo.setText("Pesquisar");
+        btnPesquisarArtigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarArtigoActionPerformed(evt);
+            }
+        });
+
+        btnLimparArtigo.setText("Limpar");
+        btnLimparArtigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparArtigoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlArtigoLayout = new javax.swing.GroupLayout(pnlArtigo);
         pnlArtigo.setLayout(pnlArtigoLayout);
@@ -316,8 +371,13 @@ public class telaEmprestimo extends javax.swing.JFrame {
                         .addComponent(txtQtdArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlArtigoLayout.createSequentialGroup()
                         .addComponent(lblAnoArtigo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtAnoArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(txtAnoArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlArtigoLayout.createSequentialGroup()
+                        .addComponent(btnPesquisarArtigo)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimparArtigo)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlArtigoLayout.setVerticalGroup(
@@ -339,8 +399,14 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 .addGroup(pnlArtigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQtdArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblQtdArtigo))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addGroup(pnlArtigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPesquisarArtigo)
+                    .addComponent(btnLimparArtigo))
+                .addGap(20, 20, 20))
         );
+
+        pnlBack.add(pnlArtigo, "card3");
 
         pnlFilme.setBackground(new java.awt.Color(248, 248, 248));
         pnlFilme.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filme", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 2, 12)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 2, 12))); // NOI18N
@@ -370,6 +436,20 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
         txtQtdFilme.setEditable(false);
 
+        btnPesquisarFilme.setText("Pesquisar");
+        btnPesquisarFilme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarFilmeActionPerformed(evt);
+            }
+        });
+
+        btnLimparFilme.setText("Limpar");
+        btnLimparFilme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparFilmeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlFilmeLayout = new javax.swing.GroupLayout(pnlFilme);
         pnlFilme.setLayout(pnlFilmeLayout);
         pnlFilmeLayout.setHorizontalGroup(
@@ -379,7 +459,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 .addGroup(pnlFilmeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFilmeLayout.createSequentialGroup()
                         .addComponent(lblCodigoFilme)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                         .addComponent(txtCodigoFilme, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlFilmeLayout.createSequentialGroup()
                         .addComponent(lblTituloFilme)
@@ -396,7 +476,12 @@ public class telaEmprestimo extends javax.swing.JFrame {
                     .addGroup(pnlFilmeLayout.createSequentialGroup()
                         .addComponent(lblAnoFilme)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtAnoFilme, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtAnoFilme, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlFilmeLayout.createSequentialGroup()
+                        .addComponent(btnPesquisarFilme)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimparFilme)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlFilmeLayout.setVerticalGroup(
@@ -422,54 +507,35 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 .addGroup(pnlFilmeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQtdFilme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblQtdFilme))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFilmeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPesquisarFilme)
+                    .addComponent(btnLimparFilme))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        rbLivro.setBackground(new java.awt.Color(248, 248, 248));
-        btnTipoAcervo.add(rbLivro);
-        rbLivro.setText("Livro");
-        rbLivro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbLivroActionPerformed(evt);
-            }
-        });
-
-        rbArtigo.setBackground(new java.awt.Color(248, 248, 248));
-        btnTipoAcervo.add(rbArtigo);
-        rbArtigo.setText("Artigo");
-
-        rbFilme.setBackground(new java.awt.Color(248, 248, 248));
-        btnTipoAcervo.add(rbFilme);
-        rbFilme.setText("Filme");
-
-        lblTipo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblTipo.setText("Selecione o tipo do empréstimo/devolução:");
+        pnlBack.add(pnlFilme, "card4");
 
         javax.swing.GroupLayout pnlEmprestimoLayout = new javax.swing.GroupLayout(pnlEmprestimo);
         pnlEmprestimo.setLayout(pnlEmprestimoLayout);
         pnlEmprestimoLayout.setHorizontalGroup(
             pnlEmprestimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEmprestimoLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
                 .addGroup(pnlEmprestimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlEmprestimoLayout.createSequentialGroup()
-                        .addComponent(lblTipo)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEmprestimoLayout.createSequentialGroup()
-                        .addComponent(rbLivro)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbArtigo)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbFilme)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlFilme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))))
-            .addGroup(pnlEmprestimoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlEmprestimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(384, Short.MAX_VALUE))
+                        .addGap(35, 35, 35)
+                        .addGroup(pnlEmprestimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTipo)
+                            .addGroup(pnlEmprestimoLayout.createSequentialGroup()
+                                .addComponent(rbLivro)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbArtigo)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbFilme))))
+                    .addGroup(pnlEmprestimoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pnlBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlEmprestimoLayout.setVerticalGroup(
             pnlEmprestimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -477,75 +543,17 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(lblTipo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlEmprestimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlFilme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlEmprestimoLayout.createSequentialGroup()
-                        .addGroup(pnlEmprestimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rbLivro)
-                            .addComponent(rbArtigo)
-                            .addComponent(rbFilme))
-                        .addGap(42, 42, 42)
-                        .addComponent(pnlLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlEmprestimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbLivro)
+                    .addComponent(rbArtigo)
+                    .addComponent(rbFilme))
+                .addGap(31, 31, 31)
+                .addComponent(pnlBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlCliente.setBackground(new java.awt.Color(249, 249, 249));
         pnlCliente.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
-
-        pnlHistoricoCliente.setBackground(new java.awt.Color(248, 248, 248));
-        pnlHistoricoCliente.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Histórico do Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Tipo Item", "Título", "Status"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        javax.swing.GroupLayout pnlHistoricoClienteLayout = new javax.swing.GroupLayout(pnlHistoricoCliente);
-        pnlHistoricoCliente.setLayout(pnlHistoricoClienteLayout);
-        pnlHistoricoClienteLayout.setHorizontalGroup(
-            pnlHistoricoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlHistoricoClienteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlHistoricoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlHistoricoClienteLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
-        pnlHistoricoClienteLayout.setVerticalGroup(
-            pnlHistoricoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlHistoricoClienteLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2))
-        );
 
         jPanel3.setBackground(new java.awt.Color(248, 248, 248));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "O que deseja fazer?", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
@@ -567,6 +575,11 @@ public class telaEmprestimo extends javax.swing.JFrame {
         jTextField13.setEditable(false);
 
         jTextField14.setEditable(false);
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
 
         jTextField15.setEditable(false);
 
@@ -603,12 +616,12 @@ public class telaEmprestimo extends javax.swing.JFrame {
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel9))
                                 .addGap(49, 49, 49)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(90, Short.MAX_VALUE))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField16, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(jTextField15, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(jTextField14))))))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -673,28 +686,28 @@ public class telaEmprestimo extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(btnConfirmarEmprestimo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDevolucaoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnPagMulta)))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(btnConfirmarEmprestimo)
+                .addGap(18, 18, 18)
+                .addComponent(btnDevolucaoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnPagMulta)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirmarEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDevolucaoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConfirmarEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPagMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlClienteLayout = new javax.swing.GroupLayout(pnlCliente);
@@ -702,26 +715,25 @@ public class telaEmprestimo extends javax.swing.JFrame {
         pnlClienteLayout.setHorizontalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlClienteLayout.createSequentialGroup()
-                .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlClienteLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(pnlHistoricoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlClienteLayout.setVerticalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlClienteLayout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pnlHistoricoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlBemVindo.setBackground(new java.awt.Color(248, 248, 248));
 
         lblBemVindo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblBemVindo.setText("Bem-vindo(a)!");
+        lblBemVindo.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                lblBemVindoComponentShown(evt);
+            }
+        });
         lblBemVindo.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 lblBemVindoPropertyChange(evt);
@@ -902,22 +914,81 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        pnlHistoricoCliente.setBackground(new java.awt.Color(248, 248, 248));
+        pnlHistoricoCliente.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Histórico do Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Tipo Item", "Título", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout pnlHistoricoClienteLayout = new javax.swing.GroupLayout(pnlHistoricoCliente);
+        pnlHistoricoCliente.setLayout(pnlHistoricoClienteLayout);
+        pnlHistoricoClienteLayout.setHorizontalGroup(
+            pnlHistoricoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHistoricoClienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlHistoricoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlHistoricoClienteLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnlHistoricoClienteLayout.setVerticalGroup(
+            pnlHistoricoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHistoricoClienteLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2))
+        );
+
         javax.swing.GroupLayout pnlGeralLayout = new javax.swing.GroupLayout(pnlGeral);
         pnlGeral.setLayout(pnlGeralLayout);
         pnlGeralLayout.setHorizontalGroup(
             pnlGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlGeralLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(pnlGeralLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlBemVindo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pnlGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlGeralLayout.createSequentialGroup()
+                        .addComponent(pnlEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pnlHistoricoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlGeralLayout.createSequentialGroup()
+                        .addComponent(pnlBemVindo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pnlGeralLayout.setVerticalGroup(
             pnlGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -925,11 +996,13 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnlBemVindo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(pnlCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlEmprestimo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlGeralLayout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pnlHistoricoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pnlEmprestimo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1083,7 +1156,6 @@ public class telaEmprestimo extends javax.swing.JFrame {
         //emprestimo.lerCliente(idCliente);
         emprestimo.salvarEmprestimo();
 
-
     }//GEN-LAST:event_btnConfirmarEmprestimoActionPerformed
 
     private void btnPagMultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagMultaActionPerformed
@@ -1092,6 +1164,9 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
     private void rbLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLivroActionPerformed
         // TODO add your handling code here:
+        pnlLivro.setVisible(true);
+        pnlArtigo.setVisible(false);
+        pnlFilme.setVisible(false);
     }//GEN-LAST:event_rbLivroActionPerformed
 
 
@@ -1136,7 +1211,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtCodigoLivroFocusGained
 
-    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+    private void btnLimparLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparLivroActionPerformed
         // TODO add your handling code here:
         txtCodigoLivro.setText("");
         txtTituloLivro.setText("");
@@ -1145,7 +1220,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
         txtEdicaoLivro.setText("");
         txtAnoLivro.setText("");
 
-    }//GEN-LAST:event_btnLimparActionPerformed
+    }//GEN-LAST:event_btnLimparLivroActionPerformed
 
     private void txtCodigoLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoLivroActionPerformed
         // TODO add your handling code here:
@@ -1187,56 +1262,56 @@ public class telaEmprestimo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtQtdLivroActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+    private void rbArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbArtigoActionPerformed
+        // TODO add your handling code here:
+        pnlLivro.setVisible(false);
+        pnlArtigo.setVisible(true);
+        pnlFilme.setVisible(false);
+    }//GEN-LAST:event_rbArtigoActionPerformed
 
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(telaEmprestimo.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void rbFilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFilmeActionPerformed
+        // TODO add your handling code here:
+        pnlLivro.setVisible(false);
+        pnlArtigo.setVisible(false);
+        pnlFilme.setVisible(true);
+    }//GEN-LAST:event_rbFilmeActionPerformed
 
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(telaEmprestimo.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void lblBemVindoComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lblBemVindoComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblBemVindoComponentShown
 
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(telaEmprestimo.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextField14ActionPerformed
 
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(telaEmprestimo.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void btnPesquisarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarArtigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesquisarArtigoActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new telaEmprestimo().setVisible(true);
-            }
-        });
-    }
+    private void btnLimparArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparArtigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimparArtigoActionPerformed
+
+    private void btnPesquisarFilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFilmeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesquisarFilmeActionPerformed
+
+    private void btnLimparFilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparFilmeActionPerformed
+        // TODO add your handling code here:
+        txt
+    }//GEN-LAST:event_btnLimparFilmeActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmarEmprestimo;
     private javax.swing.JButton btnDevolucaoItem;
-    private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnLimparArtigo;
+    private javax.swing.JButton btnLimparFilme;
+    private javax.swing.JButton btnLimparLivro;
     private javax.swing.JButton btnPagMulta;
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnPesquisarArtigo;
+    private javax.swing.JButton btnPesquisarFilme;
     private javax.swing.JButton btnPesquisarLivro;
     private javax.swing.ButtonGroup btnTipoAcervo;
     private javax.swing.JLabel jLabel10;
@@ -1288,6 +1363,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
     private javax.swing.JLabel lblTituloLivro;
     private javax.swing.JMenuBar mnPrincipal;
     private javax.swing.JPanel pnlArtigo;
+    private javax.swing.JPanel pnlBack;
     private javax.swing.JPanel pnlBemVindo;
     private javax.swing.JPanel pnlCliente;
     private javax.swing.JPanel pnlDadosCliente;

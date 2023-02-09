@@ -61,7 +61,7 @@ public class Aluno extends Cliente {
 
     public void alunoCadastroSenha() {
         try {
-            String usuario = "Professor," + this.matricula + "," + this.senha;
+            String usuario = "Aluno," + this.matricula + "," + this.senha;
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePathUser, true));
             writer.write(new String(usuario));
             writer.newLine();
