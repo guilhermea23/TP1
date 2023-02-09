@@ -18,7 +18,7 @@ import java.util.*;
  * @author bodao
  */
 public class Livro {
-    private long idLivro;
+    private long id;
     private String titulo;
     private String genero;
     private int quantidadePaginas;
@@ -30,8 +30,8 @@ public class Livro {
        
     }
     
-    public Livro(long idLivro, String titulo, String genero, int quantidadePaginas, int edicao, int anoPublicacao, boolean emprestado) {
-        this.idLivro = idLivro;
+    public Livro(long id, String titulo, String genero, int quantidadePaginas, int edicao, int anoPublicacao, boolean emprestado) {
+        this.id = id;
         this.titulo = titulo;
         this.genero = genero;
         this.quantidadePaginas = quantidadePaginas;
@@ -40,8 +40,8 @@ public class Livro {
         this.emprestado = emprestado;
     }
     
-    public void cadastrarLivro(long idLivro, String titulo, String genero, int quantidadePaginas, int edicao, int anoPublicacao, boolean emprestado) {
-        this.idLivro = idLivro;
+    public void cadastrarLivro(long id, String titulo, String genero, int quantidadePaginas, int edicao, int anoPublicacao, boolean emprestado) {
+        this.id = id;
         this.titulo = titulo;
         this.genero = genero;
         this.quantidadePaginas = quantidadePaginas;
@@ -79,8 +79,8 @@ public class Livro {
         this.emprestado = emprestado;
     }
 
-    public long getIdLivro() {
-        return idLivro;
+    public long getId() {
+        return id;
     }
 
     public String getTitulo() {

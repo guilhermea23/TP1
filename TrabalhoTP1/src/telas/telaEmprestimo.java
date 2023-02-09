@@ -1,5 +1,6 @@
 package telas;
 
+
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -93,9 +94,9 @@ public class telaEmprestimo extends javax.swing.JFrame {
         jTextField16 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
-        btnConfirmarEmprestimo1 = new javax.swing.JButton();
         btnConfirmarEmprestimo = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnDevolucaoItem = new javax.swing.JButton();
+        btnPagMulta = new javax.swing.JButton();
         pnlBemVindo = new javax.swing.JPanel();
         lblBemVindo = new javax.swing.JLabel();
         lblLogomarca = new javax.swing.JLabel();
@@ -175,6 +176,11 @@ public class telaEmprestimo extends javax.swing.JFrame {
         lblQtdLivro.setText("Qtd. disponível:");
 
         txtQtdLivro.setEditable(false);
+        txtQtdLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQtdLivroActionPerformed(evt);
+            }
+        });
 
         btnPesquisarLivro.setText("Pesquisar");
         btnPesquisarLivro.addActionListener(new java.awt.event.ActionListener() {
@@ -298,7 +304,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 .addGroup(pnlArtigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlArtigoLayout.createSequentialGroup()
                         .addComponent(lblCodigoArtigo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtCodigoArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlArtigoLayout.createSequentialGroup()
                         .addComponent(lblTituloArtigo)
@@ -329,11 +335,11 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 .addGroup(pnlArtigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAnoArtigo)
                     .addComponent(txtAnoArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(120, 120, 120)
+                .addGap(33, 33, 33)
                 .addGroup(pnlArtigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQtdArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblQtdArtigo))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pnlFilme.setBackground(new java.awt.Color(248, 248, 248));
@@ -460,9 +466,9 @@ public class telaEmprestimo extends javax.swing.JFrame {
                         .addGap(15, 15, 15))))
             .addGroup(pnlEmprestimoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlEmprestimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlEmprestimoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlArtigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(384, Short.MAX_VALUE))
         );
         pnlEmprestimoLayout.setVerticalGroup(
@@ -482,7 +488,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
                         .addComponent(pnlLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlArtigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlCliente.setBackground(new java.awt.Color(249, 249, 249));
@@ -529,7 +535,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
                     .addGroup(pnlHistoricoClienteLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         pnlHistoricoClienteLayout.setVerticalGroup(
@@ -631,33 +637,33 @@ public class telaEmprestimo extends javax.swing.JFrame {
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        btnConfirmarEmprestimo1.setBackground(new java.awt.Color(249, 255, 248));
-        btnConfirmarEmprestimo1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnConfirmarEmprestimo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/check_circle_FILL0_wght400_GRAD200_opsz24.png"))); // NOI18N
-        btnConfirmarEmprestimo1.setText("Empréstimo");
-        btnConfirmarEmprestimo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmarEmprestimo1ActionPerformed(evt);
-            }
-        });
-
-        btnConfirmarEmprestimo.setBackground(new java.awt.Color(255, 249, 225));
+        btnConfirmarEmprestimo.setBackground(new java.awt.Color(249, 255, 248));
         btnConfirmarEmprestimo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnConfirmarEmprestimo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/assignment_return_FILL0_wght400_GRAD200_opsz24.png"))); // NOI18N
-        btnConfirmarEmprestimo.setText("Devolução");
+        btnConfirmarEmprestimo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/check_circle_FILL0_wght400_GRAD200_opsz24.png"))); // NOI18N
+        btnConfirmarEmprestimo.setText("Empréstimo");
         btnConfirmarEmprestimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmarEmprestimoActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 229, 229));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/paid_FILL0_wght400_GRAD200_opsz24.png"))); // NOI18N
-        jButton2.setText("Pagamento de Multa");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnDevolucaoItem.setBackground(new java.awt.Color(255, 249, 225));
+        btnDevolucaoItem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnDevolucaoItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/assignment_return_FILL0_wght400_GRAD200_opsz24.png"))); // NOI18N
+        btnDevolucaoItem.setText("Devolução");
+        btnDevolucaoItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnDevolucaoItemActionPerformed(evt);
+            }
+        });
+
+        btnPagMulta.setBackground(new java.awt.Color(255, 229, 229));
+        btnPagMulta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPagMulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/paid_FILL0_wght400_GRAD200_opsz24.png"))); // NOI18N
+        btnPagMulta.setText("Pagamento de Multa");
+        btnPagMulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagMultaActionPerformed(evt);
             }
         });
 
@@ -671,11 +677,11 @@ public class telaEmprestimo extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(btnConfirmarEmprestimo1)
+                        .addComponent(btnConfirmarEmprestimo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnConfirmarEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDevolucaoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addComponent(jButton2)))
+                        .addComponent(btnPagMulta)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -685,9 +691,9 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirmarEmprestimo1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConfirmarEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDevolucaoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPagMulta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(80, 80, 80))
         );
 
@@ -696,19 +702,20 @@ public class telaEmprestimo extends javax.swing.JFrame {
         pnlClienteLayout.setHorizontalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlClienteLayout.createSequentialGroup()
-                .addComponent(pnlHistoricoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 18, Short.MAX_VALUE))
+                .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlClienteLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pnlHistoricoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlClienteLayout.setVerticalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlClienteLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlHistoricoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pnlHistoricoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pnlBemVindo.setBackground(new java.awt.Color(248, 248, 248));
@@ -757,6 +764,19 @@ public class telaEmprestimo extends javax.swing.JFrame {
         txtMat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtMatMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtMatMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtMatMouseExited(evt);
+            }
+        });
+        txtMat.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtMatInputMethodTextChanged(evt);
             }
         });
         txtMat.addActionListener(new java.awt.event.ActionListener() {
@@ -889,7 +909,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
             .addGroup(pnlGeralLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnlEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -904,15 +924,12 @@ public class telaEmprestimo extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGeralLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnlBemVindo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlGeralLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pnlCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pnlEmprestimo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(pnlGeralLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlGeralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(pnlCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pnlEmprestimo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -993,7 +1010,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtIdClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdClienteActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtIdClienteActionPerformed
 
     private void txtNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeClienteActionPerformed
@@ -1002,15 +1019,16 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
     private void txtMatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMatMouseClicked
         // TODO add your handling code here:
+        txtMat.setText("");
     }//GEN-LAST:event_txtMatMouseClicked
 
     private void txtMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMatActionPerformed
 
-    private void btnConfirmarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarEmprestimoActionPerformed
+    private void btnDevolucaoItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucaoItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnConfirmarEmprestimoActionPerformed
+    }//GEN-LAST:event_btnDevolucaoItemActionPerformed
 
     private void txtPendenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPendenciaActionPerformed
         // TODO add your handling code here:
@@ -1040,26 +1058,37 @@ public class telaEmprestimo extends javax.swing.JFrame {
         //new CadastroArtigo().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void btnConfirmarEmprestimo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarEmprestimo1ActionPerformed
+    private void btnConfirmarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarEmprestimoActionPerformed
         // TODO add your handling code here:
-        long codigoLivro = Long.parseLong(txtCodigoLivro.getText());
-        long idCliente = Long.parseLong(txtMat.getText());
-        
-        Emprestimo emprestimo = new Emprestimo();
-        
-        //emprestimo.lerCliente(idCliente);
-        
-        emprestimo.salvarEmprestimo(codigoLivro, idCliente);
-        
-        
-        
-      
-        
-    }//GEN-LAST:event_btnConfirmarEmprestimo1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        long codigoItem = 0;
+        String tipoItem = null;
+
+        if (rbLivro.isSelected()) {
+            codigoItem = Long.parseLong(txtCodigoLivro.getText());
+            tipoItem = "livro";
+        } else if (rbArtigo.isSelected()) {
+            codigoItem = Long.parseLong(txtCodigoArtigo.getText());
+            tipoItem = "artigo";
+        } else if (rbFilme.isSelected()) {
+            codigoItem = Long.parseLong(txtCodigoFilme.getText());
+            tipoItem = "filme";
+        }
+
+        long idCliente = Long.parseLong(txtIdCliente.getText());
+        System.out.println(codigoItem);
+
+        Emprestimo emprestimo = new Emprestimo(codigoItem, idCliente, tipoItem);
+
+        //emprestimo.lerCliente(idCliente);
+        emprestimo.salvarEmprestimo();
+
+
+    }//GEN-LAST:event_btnConfirmarEmprestimoActionPerformed
+
+    private void btnPagMultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagMultaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnPagMultaActionPerformed
 
     private void rbLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLivroActionPerformed
         // TODO add your handling code here:
@@ -1082,6 +1111,9 @@ public class telaEmprestimo extends javax.swing.JFrame {
         if (txtCodigoLivro != null) {
 
             Livro item = acervo.buscandoLivro(id);
+            long qtd = acervo.qtdLivro(item.getTitulo());
+        
+        acervo.qtdLivro(item.getTitulo());
 
             if (item != null) {
 
@@ -1090,6 +1122,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 txtPaginasLivro.setText(Integer.toString(item.getQuantidadePaginas()));
                 txtEdicaoLivro.setText(Integer.toString(item.getEdicao()));
                 txtAnoLivro.setText(Integer.toString(item.getAnoPublicacao()));
+                txtQtdLivro.setText(Long.toString(qtd));
                 //txtQtdLivro.setText(item.get)
             }
 
@@ -1100,7 +1133,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
     private void txtCodigoLivroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCodigoLivroFocusGained
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_txtCodigoLivroFocusGained
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
@@ -1109,9 +1142,9 @@ public class telaEmprestimo extends javax.swing.JFrame {
         txtTituloLivro.setText("");
         txtGeneroLivro.setText("");
         txtPaginasLivro.setText("");
-        txtEdicaoLivro.setText(""); 
-        txtAnoLivro.setText("");        
-               
+        txtEdicaoLivro.setText("");
+        txtAnoLivro.setText("");
+
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void txtCodigoLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoLivroActionPerformed
@@ -1124,19 +1157,35 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         // TODO add your handling code here:
-        long cpf = Long.parseLong(txtMat.getText());
-        
-        Cliente client = new Cliente();
-        
-        txtIdCliente.setText(Long.toString(client.getMatricula()));
-        txtNomeCliente.setText(client.getNome());
-        txtPendencia.setText(Boolean.toString(client.isPendencia()));
-        
-        
+        long matricula = Long.parseLong(txtMat.getText());
 
-        
-        
+        Cliente cliente = new Cliente();
+        cliente = cliente.buscandoCliente(matricula);
+
+        txtIdCliente.setText(Long.toString(cliente.getMatricula()));
+        txtNomeCliente.setText(cliente.getNome());
+        txtPendencia.setText(Boolean.toString(cliente.isPendencia()));
+
+
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void txtMatMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMatMouseEntered
+        // TODO add your handling code here:,
+
+    }//GEN-LAST:event_txtMatMouseEntered
+
+    private void txtMatMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMatMouseExited
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txtMatMouseExited
+
+    private void txtMatInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtMatInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMatInputMethodTextChanged
+
+    private void txtQtdLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtdLivroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQtdLivroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1153,27 +1202,23 @@ public class telaEmprestimo extends javax.swing.JFrame {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(telaEmprestimo.class  
+            java.util.logging.Logger.getLogger(telaEmprestimo.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(telaEmprestimo.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(telaEmprestimo.class  
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(telaEmprestimo.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(telaEmprestimo.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-
-} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(telaEmprestimo.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(telaEmprestimo.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -1188,12 +1233,12 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmarEmprestimo;
-    private javax.swing.JButton btnConfirmarEmprestimo1;
+    private javax.swing.JButton btnDevolucaoItem;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnPagMulta;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnPesquisarLivro;
     private javax.swing.ButtonGroup btnTipoAcervo;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

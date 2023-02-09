@@ -6,40 +6,34 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import Classes.Acervo;
-import Classes.Artigo;
-import Classes.Filme;
-import Classes.Livro;
-import Classes.Cliente;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 
-
-
-
-public class Emprestimo {
+public final class Emprestimo {
 
     private long idEmprestimo = 1;
     private Date dataRetirada;
     private boolean atraso = false;
-    private long cliente;
+    private long matricula, codigoItem;
     private Date dataDevolucao;
+    private String tipoItem;
     private final String filePath = "src\\Arquivos\\Emprestimos.txt";
     private final String filePath2 = "src\\Arquivos\\Clientes.txt";
-    
+
     private ArrayList<Emprestimo> emprestimos = new ArrayList<>();
 
     public Emprestimo() {
-        
+
     }
-    
-    public Emprestimo(long id, long matricula) {
-        this.idEmprestimo = id;
-        this.cliente = matricula;
+
+    public Emprestimo(long codigoItem, long matricula, String tipoItem) {
+        this.idEmprestimo = idEmprestimo();
+        this.codigoItem = codigoItem;
+        this.matricula = matricula;
         this.dataRetirada = new Date();
         this.dataDevolucao = new Date(System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000); // 7 dias a partir da data de empréstimo
+        this.tipoItem = tipoItem;
     }
 
     public Emprestimo(Date dataRetirada) {
@@ -70,51 +64,82 @@ public class Emprestimo {
         this.atraso = atraso;
     }
 
+    public long getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(long matricula) {
+        this.matricula = matricula;
+    }
+
+    public Date getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    public String getTipoItem() {
+        return tipoItem;
+    }
+
+    public void setTipoItem(String tipoItem) {
+        this.tipoItem = tipoItem;
+    }
+
+    public void salvarEmprestimo() {
+
         Acervo acervo = new Acervo();
+        Cliente cliente = new Cliente();
 
+        cliente = cliente.buscandoCliente(this.matricula);
         
-        
-    public String lerCliente(long mat) {
-        
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(filePath2));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(":");
-                if (parts[0].equals(mat)) {
-                    return parts[0];
-                }
-            }
-            reader.close();
-        } catch (IOException e) {
-            System.err.println("Erro ao ler o arquivo de usuários: " + e.getMessage());
-        }
-        return null;
-    }    
 
-    public void salvarEmprestimo(long codigoLivro, long idCliente) {
-        
-        Livro idLivro = new Livro();
-        
+        //long matriculaCliente = idCliente;
+        if ("livro".equals(this.getTipoItem())) {
+
+            Livro item = acervo.buscandoLivro(codigoItem);
+
+            if (item.isEmprestado() == false) {
+                
+                System.out.println("Nao ta emprestado");
+                System.out.println("Tipo cliente: " + cliente.getTipoCliente());
+                
+                if ("aluno".equals(cliente.getTipoCliente())) {
+                    
+                    System.out.println("Entrou aluno");
+                    
+                    int limite = 3;
+                    int qtdItens = ((Aluno)cliente).getQtdItens();
+
+                    if (qtdItens < limite) {
+                        emiteEmprestimo(cliente.getMatricula(), item.getId(), tipoItem);
+                        ((Aluno)cliente).setQtdItens(qtdItens++);
+                        System.out.println("Emprestimo emitido!");
+                    } //Se o aluno ainda tiver limite
+                    else {
+
+                        System.out.println(cliente.getNome() + " Não possui limite disponível para emprestimo");
+
+                    }// Se o aluno não tiver limite
+                }// Se cliente for um aluno
+            }// Se o item não estiver emprestado
+        }// Se o item for do tipo livro
+
+}// Salvar o emprestimo
+
+    public boolean emiteEmprestimo(long matriculaCliente, long idItem, String tipoItem) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
-            
-            //Cliente clientes = new Cliente();
-            Livro livro = new Livro();
-            long matricula = idCliente;
-            
-            livro.setEmprestado(true);
-            
-            writer.write(getIdEmprestimo() + "," + matricula + "," + livro.getIdLivro());
+            writer.write(idEmprestimo() + "," + matriculaCliente + "," + idItem + "," + tipoItem);
             writer.newLine();
             writer.close();
-            idEmprestimo++;
+            return true;
+
         } catch (IOException e) {
             System.err.println("Erro ao escrever o arquivo de emprestimos: " + e.getMessage());
+            return false;
         }
     }
-    
-    public Livro pegarLivroDoAcervo(String idItem) {
+
+    /*   public Livro pegarLivroDoAcervo(String idItem) {
         List<Livro> acervo = carregarAcervoDeLivros();
         for (Livro livro : acervo) {
             if (Long.toString(livro.getIdLivro()).equals(idItem) && !livro.isEmprestado()) { {
@@ -124,7 +149,23 @@ public class Emprestimo {
         }
         return null;
     }
+     */
+    public long idEmprestimo() {
+        int id = 1;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                id++;
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.err.println("Erro ao escrever dados do livro: " + e.getMessage());
+        }
 
+        return id;
+    }
+/*
     private static List<Livro> carregarAcervoDeLivros() {
 
         List<Livro> acervo = new ArrayList<>();
@@ -216,5 +257,5 @@ public class Emprestimo {
         }
         return acervo;
     }
-
+*/
 }

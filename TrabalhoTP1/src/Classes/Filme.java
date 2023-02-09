@@ -14,31 +14,34 @@ import java.io.IOException;
  * @author gabri
  */
 public class Filme {
-    private long idFilme;
+
+    private long id;
     private String titulo, genero;
     private int anoLancamento;
     private boolean emprestado;
     private final String filePath = "src\\Arquivos\\FilmesCadastrados.txt";
-    
-    public Filme(){}
+
+    public Filme() {
+    }
+
     public Filme(long idFilme, String titulo, String genero, int anoLancamento, boolean emprestado) {
-        this.idFilme = idFilme;
+        this.id = idFilme;
         this.titulo = titulo;
         this.genero = genero;
         this.anoLancamento = anoLancamento;
         this.emprestado = emprestado;
     }
-    
+
     public void cadastrarFilme(long idFilme, String titulo, String genero, int anoLancamento, boolean emprestado) {
-        this.idFilme = idFilme;
+        this.id = idFilme;
         this.titulo = titulo;
         this.genero = genero;
         this.anoLancamento = anoLancamento;
         this.emprestado = emprestado;
     }
-    
-    public long getIdFilme() {
-        return idFilme;
+
+    public long getId() {
+        return id;
     }
 
     public String getTitulo() {
@@ -53,8 +56,8 @@ public class Filme {
         return anoLancamento;
     }
 
-    public void setIdFilme(long idFilme) {
-        this.idFilme = idFilme;
+    public void setId(long idFilme) {
+        this.id = idFilme;
     }
 
     public void setTitulo(String titulo) {
@@ -75,25 +78,25 @@ public class Filme {
 
     @Override
     public String toString() {
-        return titulo + "," + genero + "," + anoLancamento + "," + emprestado ;
+        return titulo + "," + genero + "," + anoLancamento + "," + emprestado;
     }
-    
-    public long idFilme(){
-        int id = 1;
-        try{
+
+    public long idFilme() {
+        int ident = 1;
+        try {
             BufferedReader reader = new BufferedReader(new java.io.FileReader(filePath));
             String line;
             while ((line = reader.readLine()) != null) {
-                id++;
+                ident++;
             }
             reader.close();
-        }catch (IOException e) {
+        } catch (IOException e) {
             System.err.println("Erro ao escrever dados do livro: " + e.getMessage());
         }
-        
-        return id;        
+
+        return ident;
     }
-    
+
     //Fazer o cadastro filme
     public void filmeCadastro() {
 

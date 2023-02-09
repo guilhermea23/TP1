@@ -1,31 +1,95 @@
 package Classes;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Cliente {
+
     //protected Long id;
-    protected Long matricula;
-    protected String nome;
-    protected int cpf;
+    protected long matricula;
+    protected String nome, tipoCliente;
+    protected long cpf;
     protected Date dataNascimento;
     protected int senha;
     protected boolean pendencia;
-    
-    public Cliente(){
-    
+
+    private final String filePath = "src\\Arquivos\\Clientes.txt";
+
+    public Cliente() {
+
     }
 
-    public Cliente(Long matricula, String nome, int cpf, Date dataNascimento, int senha, boolean pendencia) {
+    public Cliente(long matricula, String nome, long cpf, Date dataNascimento, int senha, boolean pendencia, String tipoCliente) {
         this.matricula = matricula;
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.senha = senha;
         this.pendencia = pendencia;
+        this.tipoCliente = tipoCliente;
     }
-   
 
-    public Long getMatricula() {
+    public void cadastraCliente(long matricula, String nome, long cpf, Date dataNascimento, int senha, boolean pendencia, String tipoCliente) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.senha = senha;
+        this.pendencia = pendencia;
+        this.tipoCliente = tipoCliente;
+    }
+
+    public Cliente buscandoCliente(long idCliente) {
+               
+        //Realiza a leitura do arquivo Clientes.txt linha a linha
+        try (BufferedReader br = new BufferedReader(new java.io.FileReader(filePath))) {
+            
+            String linha;
+            
+            while ((linha = br.readLine()) != null) { //Enquanto houver linhas no arquivo, continua lendo
+                
+                String[] dadosCliente = linha.split(",");
+                long id = Long.parseLong(dadosCliente[0]); //Recebe a matricula que esta no primeiro campo do arquivo
+                
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                
+                if (id == idCliente) {  // Se o ID recebido como parametro for igual ao ID no arquivo, então tente ler           
+                    
+                    try {
+                        // Se for aluno, crie um objeto cliente do tipo Aluno.
+                        if("aluno".equals(dadosCliente[6])){ // Se o campo 6 da linha for igual a "aluno", crie um objeto CLIENTE do tipo ALUNO e retorne.
+                              
+                            Date data = formatter.parse(dadosCliente[3]);
+                            
+                            // Construtor para aluno é aluno(long matricula, String nome, long cpf, Date dataNascimento, int senha, boolean pendencia, String tipoCliente, String curso)
+                            Cliente cliente = new Aluno(id, dadosCliente[1], Long.parseLong(dadosCliente[2]), data, 
+                                        Integer.parseInt(dadosCliente[4]), Boolean.parseBoolean(dadosCliente[5]), dadosCliente[6], dadosCliente[7]);
+                            return cliente;
+                        }
+                        
+                        // Se for professor, crie um objeto cliente do tipo Professor.
+                        
+                        
+                        // Se for funcionario, crie um objeto cliente do tipo Funcionario.
+
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }// se existir id cliente
+                else{ //se nao existir id cliente
+                    System.out.println("Id não encontrado"); // Precisa transformar em uma janela de erro. 
+                }
+            }// enquanto existir linha, repita.
+        } catch (IOException e) {
+            System.out.println("Ocorreu um erro ao carregar os Clientes: " + e.getMessage());
+        }
+        return null;
+    }
+
+    public long getMatricula() {
         return matricula;
     }
 
@@ -41,7 +105,7 @@ public class Cliente {
         return nome;
     }
 
-    public int getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
@@ -53,7 +117,7 @@ public class Cliente {
         return pendencia;
     }
 
-    public void setMatricula(Long matricula) {
+    public void setMatricula(long matricula) {
         this.matricula = matricula;
     }
 
@@ -61,7 +125,7 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
@@ -71,6 +135,14 @@ public class Cliente {
 
     public void setPendencia(boolean pendencia) {
         this.pendencia = pendencia;
+    }
+
+    public String getTipoCliente() {
+        return tipoCliente;
+    }
+
+    public void setTipoCliente(String tipoCliente) {
+        this.tipoCliente = tipoCliente;
     }
 
     @Override
@@ -84,7 +156,5 @@ public class Cliente {
         sb.append(",").append(pendencia);
         return sb.toString();
     }
-    
-    
-    
+
 }
