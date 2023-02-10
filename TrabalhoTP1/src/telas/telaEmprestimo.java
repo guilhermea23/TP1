@@ -1,6 +1,5 @@
 package telas;
 
-
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,7 +26,6 @@ public class telaEmprestimo extends javax.swing.JFrame {
     public telaEmprestimo() {
         initComponents();
     }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -90,12 +88,12 @@ public class telaEmprestimo extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
+        txtItensReservados = new javax.swing.JTextField();
+        txtQtdPendencias = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
+        txtEmprestimosRestantes = new javax.swing.JTextField();
         btnConfirmarEmprestimo = new javax.swing.JButton();
         btnDevolucaoItem = new javax.swing.JButton();
         btnPagMulta = new javax.swing.JButton();
@@ -129,6 +127,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
 
         pnlGeral.setBackground(new java.awt.Color(248, 248, 248));
 
@@ -335,6 +334,11 @@ public class telaEmprestimo extends javax.swing.JFrame {
         lblQtdArtigo.setText("Qtd. disponível:");
 
         txtQtdArtigo.setEditable(false);
+        txtQtdArtigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQtdArtigoActionPerformed(evt);
+            }
+        });
 
         btnPesquisarArtigo.setText("Pesquisar");
         btnPesquisarArtigo.addActionListener(new java.awt.event.ActionListener() {
@@ -574,14 +578,14 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
         jTextField13.setEditable(false);
 
-        jTextField14.setEditable(false);
-        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+        txtItensReservados.setEditable(false);
+        txtItensReservados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField14ActionPerformed(evt);
+                txtItensReservadosActionPerformed(evt);
             }
         });
 
-        jTextField15.setEditable(false);
+        txtQtdPendencias.setEditable(false);
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel17.setText("Valor da Multa:");
@@ -591,7 +595,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("Total de empréstimos restantes:");
 
-        jTextField17.setEditable(false);
+        txtEmprestimosRestantes.setEditable(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -608,7 +612,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addGap(29, 29, 29)
-                                .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtEmprestimosRestantes, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -619,8 +623,8 @@ public class telaEmprestimo extends javax.swing.JFrame {
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextField16, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                                     .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                    .addComponent(jTextField15, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                                    .addComponent(jTextField14))))))
+                                    .addComponent(txtQtdPendencias, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                    .addComponent(txtItensReservados))))))
                 .addContainerGap(84, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -631,14 +635,14 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtItensReservados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmprestimosRestantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQtdPendencias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1101,6 +1105,25 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
     private void btnDevolucaoItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucaoItemActionPerformed
         // TODO add your handling code here:
+        long codigoItem = 0;
+        String tipoItem = null;
+
+        if (rbLivro.isSelected()) {
+            codigoItem = Long.parseLong(txtCodigoLivro.getText());
+            tipoItem = "livro";
+        } else if (rbArtigo.isSelected()) {
+            codigoItem = Long.parseLong(txtCodigoArtigo.getText());
+            tipoItem = "artigo";
+        } else if (rbFilme.isSelected()) {
+            codigoItem = Long.parseLong(txtCodigoFilme.getText());
+            tipoItem = "filme";
+        }
+
+        Emprestimo emprestimo = new Emprestimo();
+        Acervo acervo = new Acervo();
+        
+        emprestimo.devolucao(codigoItem,tipoItem);
+
     }//GEN-LAST:event_btnDevolucaoItemActionPerformed
 
     private void txtPendenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPendenciaActionPerformed
@@ -1149,11 +1172,9 @@ public class telaEmprestimo extends javax.swing.JFrame {
         }
 
         long idCliente = Long.parseLong(txtIdCliente.getText());
-        System.out.println(codigoItem);
 
         Emprestimo emprestimo = new Emprestimo(codigoItem, idCliente, tipoItem);
 
-        //emprestimo.lerCliente(idCliente);
         emprestimo.salvarEmprestimo();
 
     }//GEN-LAST:event_btnConfirmarEmprestimoActionPerformed
@@ -1187,8 +1208,8 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
             Livro item = acervo.buscandoLivro(id);
             long qtd = acervo.qtdLivro(item.getTitulo());
-        
-        acervo.qtdLivro(item.getTitulo());
+
+            acervo.qtdLivro(item.getTitulo());
 
             if (item != null) {
 
@@ -1198,7 +1219,6 @@ public class telaEmprestimo extends javax.swing.JFrame {
                 txtEdicaoLivro.setText(Integer.toString(item.getEdicao()));
                 txtAnoLivro.setText(Integer.toString(item.getAnoPublicacao()));
                 txtQtdLivro.setText(Long.toString(qtd));
-                //txtQtdLivro.setText(item.get)
             }
 
         }
@@ -1219,6 +1239,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
         txtPaginasLivro.setText("");
         txtEdicaoLivro.setText("");
         txtAnoLivro.setText("");
+        txtQtdLivro.setText("");
 
     }//GEN-LAST:event_btnLimparLivroActionPerformed
 
@@ -1236,10 +1257,16 @@ public class telaEmprestimo extends javax.swing.JFrame {
 
         Cliente cliente = new Cliente();
         cliente = cliente.buscandoCliente(matricula);
-
+        Emprestimo emprestimo = new Emprestimo();
+        
+        long qtdItens = emprestimo.existeEmprestimo(cliente.getMatricula());
+        String tipoCliente = cliente.getTipoCliente();
+       
+        
         txtIdCliente.setText(Long.toString(cliente.getMatricula()));
         txtNomeCliente.setText(cliente.getNome());
         txtPendencia.setText(Boolean.toString(cliente.isPendencia()));
+        txtItensReservados.setText(Long.toString(qtdItens));
 
 
     }//GEN-LAST:event_btnPesquisarActionPerformed
@@ -1280,27 +1307,67 @@ public class telaEmprestimo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblBemVindoComponentShown
 
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+    private void txtItensReservadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItensReservadosActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jTextField14ActionPerformed
+    }//GEN-LAST:event_txtItensReservadosActionPerformed
 
     private void btnPesquisarArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarArtigoActionPerformed
         // TODO add your handling code here:
+        long id = Long.parseLong(txtCodigoArtigo.getText());
+
+        Acervo acervo = new Acervo();
+
+        if (txtCodigoArtigo.getText() != null) {
+            
+            Artigo item = acervo.buscandoArtigo(id);
+            long qtd = acervo.qtdArtigo(item.getTitulo());
+
+            if (item != null) {
+
+                txtTituloArtigo.setText(item.getTitulo());
+                txtAnoArtigo.setText(Integer.toString(item.getAnoPublicacao()));
+                txtQtdArtigo.setText(Long.toString(qtd));
+            }
+        }
     }//GEN-LAST:event_btnPesquisarArtigoActionPerformed
 
     private void btnLimparArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparArtigoActionPerformed
         // TODO add your handling code here:
+        txtCodigoArtigo.setText("");
+        txtTituloArtigo.setText("");
+        txtAnoArtigo.setText("");
+        txtQtdArtigo.setText("");
+        
     }//GEN-LAST:event_btnLimparArtigoActionPerformed
 
     private void btnPesquisarFilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarFilmeActionPerformed
         // TODO add your handling code here:
+        long id = Long.parseLong(txtCodigoFilme.getText());
+
+        Acervo acervo = new Acervo();
+
+        if (txtCodigoFilme.getText() != null) {
+            
+            Filme item = acervo.buscandoFilme(id);
+            long qtd = acervo.qtdFilme(item.getTitulo());
+
+            if (item != null) {
+
+                txtTituloFilme.setText(item.getTitulo());
+                txtAnoFilme.setText(Integer.toString(item.getAnoLancamento()));
+                txtGeneroFilme.setText(item.getGenero());
+                txtQtdFilme.setText(Long.toString(qtd));
+            }
+        }     
     }//GEN-LAST:event_btnPesquisarFilmeActionPerformed
 
     private void btnLimparFilmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparFilmeActionPerformed
         // TODO add your handling code here:
-        txt
     }//GEN-LAST:event_btnLimparFilmeActionPerformed
+
+    private void txtQtdArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtdArtigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQtdArtigoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmarEmprestimo;
@@ -1338,10 +1405,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
     private javax.swing.JLabel lblAnoArtigo;
     private javax.swing.JLabel lblAnoFilme;
     private javax.swing.JLabel lblAnoLivro;
@@ -1383,9 +1447,11 @@ public class telaEmprestimo extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodigoFilme;
     private javax.swing.JTextField txtCodigoLivro;
     private javax.swing.JTextField txtEdicaoLivro;
+    private javax.swing.JTextField txtEmprestimosRestantes;
     private javax.swing.JTextField txtGeneroFilme;
     private javax.swing.JTextField txtGeneroLivro;
     private javax.swing.JTextField txtIdCliente;
+    private javax.swing.JTextField txtItensReservados;
     private javax.swing.JTextField txtMat;
     private javax.swing.JTextField txtNomeCliente;
     private javax.swing.JTextField txtPaginasLivro;
@@ -1393,6 +1459,7 @@ public class telaEmprestimo extends javax.swing.JFrame {
     private javax.swing.JTextField txtQtdArtigo;
     private javax.swing.JTextField txtQtdFilme;
     private javax.swing.JTextField txtQtdLivro;
+    private javax.swing.JTextField txtQtdPendencias;
     private javax.swing.JTextField txtTituloArtigo;
     private javax.swing.JTextField txtTituloFilme;
     private javax.swing.JTextField txtTituloLivro;
