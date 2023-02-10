@@ -74,6 +74,10 @@ public class Artigo {
         this.emprestado = emprestado;
     }
 
+    public long getId() {
+        return idArtigo;
+    }
+    
     @Override
     public String toString() {
         return titulo + "," + anoPublicacao + "," + autorArtigo + "," + emprestado;

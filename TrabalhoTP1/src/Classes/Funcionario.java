@@ -14,7 +14,7 @@ public class Funcionario extends Cliente {
     }
     
 
-    public Funcionario(String cargo, Long matricula, String nome, int cpf, Date dataNascimento, int senha, boolean pendencia) {
+    public Funcionario(String cargo, long matricula, String nome, int cpf, Date dataNascimento, int senha, boolean pendencia) {
         super(matricula, nome, cpf, dataNascimento, senha, pendencia);
         this.cargo = cargo;
     }

@@ -10,6 +10,8 @@ import java.io.IOException;
 public class Acervo {
     
     private final String filePath = "src\\Arquivos\\livrosCadastrados.txt";
+    private final String filePathArtigo = "src\\Arquivos\\ArtigosCadastrados.txt";
+    private final String filePathFilme = "src\\Arquivos\\FilmesCadastrados.txt";
 
     public Acervo() {
     }
@@ -53,7 +55,7 @@ public class Acervo {
     
     public Filme buscandoFilme(long idFilme){
         Filme filme = new Filme();
-        try (BufferedReader br = new BufferedReader(new java.io.FileReader("FilmesCadastrados.txt"))) {
+        try (BufferedReader br = new BufferedReader(new java.io.FileReader(filePathFilme))) {
             String linha;
             while ((linha = br.readLine()) != null) {
                 String[] dadosFilme = linha.split(",");
@@ -73,7 +75,7 @@ public class Acervo {
     public int qtdFilme(String tituloFilme){
          String linha;
          int qtdFilme = 0;
-         try (BufferedReader br = new BufferedReader(new java.io.FileReader("FilmesCadastrados.txt"))) {    
+         try (BufferedReader br = new BufferedReader(new java.io.FileReader(filePathFilme))) {    
             while ((linha = br.readLine()) != null) {
                 String[] dadosFilme = linha.split(",");                
                 if(tituloFilme.equals(dadosFilme[1])){                                
@@ -89,7 +91,7 @@ public class Acervo {
     
     public Artigo buscandoArtigo(long idArtigo){
         Artigo artigo = new Artigo();
-        try (BufferedReader br = new BufferedReader(new java.io.FileReader("ArtigosCadastrados.txt"))) {
+        try (BufferedReader br = new BufferedReader(new java.io.FileReader(filePathArtigo))) {
             String linha;
             while ((linha = br.readLine()) != null) {
                 String[] dadosArtigo = linha.split(",");
@@ -110,7 +112,7 @@ public class Acervo {
     public int qtdArtigo(String tituloArtigo){
          String linha;
          int qtdArtigo = 0;
-         try (BufferedReader br = new BufferedReader(new java.io.FileReader("FilmesCadastrados.txt"))) {    
+         try (BufferedReader br = new BufferedReader(new java.io.FileReader(filePathArtigo))) {    
             while ((linha = br.readLine()) != null) {
                 String[] dadosArtigo = linha.split(",");                
                 if(tituloArtigo.equals(dadosArtigo[1])){                                
